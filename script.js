@@ -69,6 +69,9 @@ function applyConfig() {
     contactInstagram.textContent = '@' + handle;
   }
 
+  const projectsWhatsappBtn = document.getElementById('projectsWhatsappBtn');
+  if (projectsWhatsappBtn) { projectsWhatsappBtn.href = whatsappLink(); }
+
   const contactMainBtn = document.getElementById('contactMainBtn');
   if (contactMainBtn) { contactMainBtn.href = whatsappLink(); }
 }
