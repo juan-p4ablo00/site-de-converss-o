@@ -1299,6 +1299,123 @@ html:not(.js) .step::before {
   stroke-linecap: round;
 }
 
+.email-dialog {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  width: min(680px, calc(100% - 32px));
+  max-width: 680px;
+  max-height: min(760px, calc(100dvh - 32px));
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: var(--ink);
+  color: var(--text);
+  overflow-y: auto;
+  transform: translate(-50%, -46%);
+}
+
+.email-dialog::backdrop {
+  background: rgba(2, 3, 8, .78);
+}
+
+.email-dialog[open] {
+  animation: email-in .45s var(--ease-out) forwards;
+}
+
+.email-dialog[open]::backdrop {
+  animation: fade-in .45s var(--ease-out);
+}
+
+.email-dialog-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 20px 0;
+}
+
+.email-sheet {
+  padding: 8px clamp(24px, 5vw, 56px) clamp(32px, 5vw, 56px);
+}
+
+.email-sheet .case-title {
+  margin-bottom: 16px;
+}
+
+.email-lead {
+  max-width: 52ch;
+  margin-bottom: 28px;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+}
+
+.email-form {
+  display: grid;
+  gap: 20px;
+}
+
+.email-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.email-fields label:last-child {
+  grid-column: 1 / -1;
+}
+
+.email-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: var(--fs-micro);
+}
+
+.email-form input,
+.email-form textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-small);
+  outline: 0;
+  transition: border-color .3s var(--ease-out), background .3s var(--ease-out);
+}
+
+.email-form input {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.email-form textarea {
+  min-height: 132px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.email-form input::placeholder,
+.email-form textarea::placeholder {
+  color: var(--text-3);
+  opacity: 1;
+}
+
+.email-form input:focus,
+.email-form textarea:focus {
+  border-color: var(--blue-text);
+  background: #101a33;
+}
+
+.email-submit {
+  justify-self: start;
+  gap: 12px;
+}
+
+.email-submit .arr {
+  width: 18px;
+  height: 18px;
+}
+
 .case-body {
   padding: 8px clamp(20px, 5vw, 64px) clamp(40px, 6vw, 72px);
 }
@@ -1399,6 +1516,17 @@ html:not(.js) .step::before {
   from {
     opacity: 0;
     transform: translateX(56px);
+  }
+}
+
+@keyframes email-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -42%) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -2031,6 +2159,31 @@ html:not(.js) .step::before {
   .work-arrow {
     width: 24px;
     height: 24px;
+  }
+
+  .email-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .email-dialog-bar {
+    padding-right: 12px;
+  }
+
+  .email-sheet {
+    padding-inline: 20px;
+  }
+
+  .email-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .email-fields label:last-child {
+    grid-column: auto;
+  }
+
+  .email-submit {
+    width: 100%;
   }
 }
 

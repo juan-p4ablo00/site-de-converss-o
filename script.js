@@ -338,6 +338,64 @@ function initCases() {
 }
 
 /* =========================================================
+   FORMULÁRIO DE E-MAIL
+   abre uma mensagem pronta no cliente de e-mail do visitante
+   ========================================================= */
+function initEmailForm() {
+  const dialog = document.getElementById('emailDialog');
+  const trigger = document.querySelector('[data-email-trigger]');
+  const closeBtn = document.getElementById('emailClose');
+  const form = document.getElementById('emailForm');
+  if (!dialog || !trigger || !closeBtn || !form || typeof dialog.showModal !== 'function') return;
+
+  const nameInput = form.elements.namedItem('name');
+
+  const close = () => {
+    if (dialog.open) dialog.close();
+    document.body.classList.remove('case-open');
+    document.documentElement.style.overflow = '';
+    trigger.focus({ preventScroll: true });
+  };
+
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    dialog.showModal();
+    document.body.classList.add('case-open');
+    document.documentElement.style.overflow = 'hidden';
+    nameInput.focus();
+  });
+
+  closeBtn.addEventListener('click', close);
+  dialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    close();
+  });
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) close();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('case-open');
+    document.documentElement.style.overflow = '';
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const subject = `Novo contato pelo site: ${data.get('name')}`;
+    const body = [
+      `Nome: ${data.get('name')}`,
+      `E-mail: ${data.get('email')}`,
+      `Telefone: ${data.get('phone')}`,
+      '',
+      'Mensagem:',
+      data.get('message')
+    ].join('\n');
+    window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    close();
+  });
+}
+
+/* =========================================================
    COMO TRABALHO: o trilho acompanha a rolagem
    ========================================================= */
 function initSteps() {
@@ -417,5 +475,6 @@ initMenu();
 initReveal();
 initWorkPreview();
 initCases();
+initEmailForm();
 initSteps();
 initMobileCta();

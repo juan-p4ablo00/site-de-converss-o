@@ -454,7 +454,8 @@
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
               Conversar no WhatsApp
             </a>
-            <a href="mailto:juanpablon277@gmail.com" class="btn btn-outline-light btn-lg" data-config-link="mailto">
+            <a href="mailto:juanpablon277@gmail.com" class="btn btn-outline-light btn-lg" data-config-link="mailto"
+              data-email-trigger>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail" /></svg>
               Enviar e-mail
             </a>
@@ -626,6 +627,44 @@
         <a class="btn btn-ghost" href="https://advocacia1.vercel.app/" target="_blank" rel="noopener">Abrir o
           esboço <svg class="arr arr--out" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg></a>
       </article>
+    </div>
+  </dialog>
+
+  <!-- ============ FORMULÁRIO DE E-MAIL ============ -->
+  <dialog class="email-dialog" id="emailDialog" aria-labelledby="emailDialogTitle">
+    <div class="email-dialog-bar">
+      <button class="case-close" type="button" id="emailClose" aria-label="Fechar formulário de e-mail">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+    </div>
+    <div class="email-sheet">
+      <p class="case-meta">Contato direto · Respondo pessoalmente</p>
+      <h2 class="case-title" id="emailDialogTitle">Vamos conversar?</h2>
+      <p class="email-lead">Me conte um pouco sobre você e o que precisa. Ao enviar, seu aplicativo de e-mail abrirá com a mensagem pronta.</p>
+      <form class="email-form" id="emailForm">
+        <div class="email-fields">
+          <label>
+            <span>Seu nome</span>
+            <input name="name" type="text" autocomplete="name" placeholder="Como posso te chamar?" required>
+          </label>
+          <label>
+            <span>Seu e-mail</span>
+            <input name="email" type="email" autocomplete="email" placeholder="voce@empresa.com" required>
+          </label>
+          <label>
+            <span>Seu número</span>
+            <input name="phone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required>
+          </label>
+        </div>
+        <label>
+          <span>Como posso ajudar?</span>
+          <textarea name="message" rows="5" placeholder="Conte um pouco do seu projeto..." required></textarea>
+        </label>
+        <button class="btn btn-primary btn-lg email-submit" type="submit">
+          Enviar e-mail
+          <svg class="arr arr--out" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
+        </button>
+      </form>
     </div>
   </dialog>
 
