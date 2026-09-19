@@ -3,480 +3,468 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor Web & Soluções Digitais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Juan Pablo · JPI | Sites, landing pages e automação para negócios</title>
   <meta name="description"
-    content="Desenvolvimento de sites, automações e soluções com inteligência artificial para empresas e profissionais.">
+    content="Juan Pablo (JPI) cria sites profissionais, landing pages e sistemas de atendimento 24h no WhatsApp para negócios. Goianésia do Pará, PA, com atendimento online para todo o Brasil.">
+  <meta name="theme-color" content="#03050d">
+  <link rel="canonical" href="https://porti-folio-jpi.vercel.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Juan Pablo · JPI">
+  <meta property="og:title" content="Juan Pablo · JPI | Sites à altura do seu negócio">
+  <meta property="og:description"
+    content="Sites profissionais, landing pages e atendimento automático no WhatsApp. Você fala direto com quem desenvolve.">
+  <meta property="og:url" content="https://porti-folio-jpi.vercel.app/">
+  <meta property="og:image" content="https://porti-folio-jpi.vercel.app/assets/img/og-juan-pablo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Retrato de Juan Pablo em estúdio, com luz azul">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&display=swap"
     rel="stylesheet">
-
+  <link rel="preload" as="image" href="assets/img/juan-pablo-retrato.webp"
+    imagesrcset="assets/img/juan-pablo-retrato-720.webp 720w, assets/img/juan-pablo-retrato.webp 1254w"
+    imagesizes="(max-width: 959px) 100vw, 52vw">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Juan Pablo · JPI",
+    "description": "Sites profissionais, landing pages, sistemas de atendimento 24h e automações para negócios.",
+    "url": "https://porti-folio-jpi.vercel.app/",
+    "image": "https://porti-folio-jpi.vercel.app/assets/img/og-juan-pablo.jpg",
+    "email": "juanpablon277@gmail.com",
+    "telephone": "+55 94 99973-1943",
+    "areaServed": "BR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Goianésia do Pará",
+      "addressRegion": "PA",
+      "addressCountry": "BR"
+    },
+    "founder": { "@type": "Person", "name": "Juan Pablo" },
+    "sameAs": [
+      "https://www.instagram.com/jpitech.00/",
+      "https://github.com/juan-p4ablo00",
+      "https://www.linkedin.com/in/juan-pablo-nascimento/"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-
-  <div class="grain"></div>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#inicio" class="brand">
-        <span class="brand-mark">&lt;/&gt;</span>
-        <span class="brand-name" data-config="name">Juan Pablo</span>
+    <div class="shell header-bar">
+      <a href="#inicio" class="brand" aria-label="Juan Pablo, JPI: voltar ao início">
+        <svg class="brand-mark" viewBox="0 0 34 20" aria-hidden="true">
+          <path d="M9 3 2 10l7 7M20.5 1.5 13.5 18.5M25 3l7 7-7 7" />
+        </svg>
+        <span class="brand-name">Juan Pablo</span>
       </a>
 
-      <nav class="nav" id="mainNav">
-        <a href="#inicio" class="nav-link active">Início</a>
-        <a href="#sobre" class="nav-link">Sobre</a>
-        <a href="#solucoes" class="nav-link">Soluções</a>
-        <a href="#projetos" class="nav-link">Projetos</a>
-        <a href="#contato" class="nav-link">Contato</a>
+      <nav class="nav" id="mainNav" aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link">Início</a></li>
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="#solucoes" class="nav-link">Soluções</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="nav-foot">
+          <a href="https://wa.me/5594999731943" class="btn btn-primary nav-cta" data-whatsapp target="_blank"
+            rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+            Conversar no WhatsApp
+          </a>
+          <p class="nav-note">Goianésia do Pará, PA · online para todo o Brasil</p>
+        </div>
       </nav>
 
-      <div class="header-actions">
-        <a href="#contato" class="btn btn-outline btn-sm">Vamos conversar</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <a href="https://wa.me/5594999731943" class="btn btn-primary btn-sm header-cta" data-whatsapp
+        target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+        Conversar no WhatsApp
+      </a>
+
+      <button class="menu-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="mainNav">
+        <span></span><span></span>
+      </button>
+      <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
     </div>
   </header>
 
-  <main>
+  <main id="conteudo">
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-      <div class="hero-field" aria-hidden="true">
-        <div class="field-grid"></div>
-        <div class="field-glow field-glow--a"></div>
-        <div class="field-glow field-glow--b"></div>
-      </div>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <figure class="hero-portrait">
+        <img src="assets/img/juan-pablo-retrato.webp"
+          srcset="assets/img/juan-pablo-retrato-720.webp 720w, assets/img/juan-pablo-retrato.webp 1254w"
+          sizes="(max-width: 959px) 100vw, 52vw" width="1254" height="1254"
+          alt="Juan Pablo, retrato em estúdio com luz azul" fetchpriority="high" decoding="async">
+      </figure>
+      <svg class="hero-slash" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="slashFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2f5bff" stop-opacity="0" />
+            <stop offset=".28" stop-color="#4870ff" stop-opacity=".9" />
+            <stop offset=".7" stop-color="#2f5bff" stop-opacity=".55" />
+            <stop offset="1" stop-color="#2f5bff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <line x1="63.5" y1="9" x2="53" y2="102" />
+      </svg>
 
-      <div class="container hero-grid">
-        <div class="hero-content" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Desenvolvedor Web &amp; Soluções Digitais</p>
-          <h1 class="hero-title">Transformo <span class="accent">ideias</span> em soluções digitais.</h1>
-          <p class="hero-sub">Desenvolvo experiências digitais, automações e soluções inteligentes para empresas e
-            profissionais que querem transformar suas ideias em algo real.</p>
-
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title" id="hero-title">
+            <span class="line" style="--i:0"><span>Sites à altura</span></span>
+            <span class="line" style="--i:1"><span>do negócio que</span></span>
+            <span class="line" style="--i:2"><span>você construiu.</span></span>
+          </h1>
+          <p class="hero-sub">Landing pages, sites profissionais e atendimento automático no WhatsApp para negócios que
+            querem passar confiança. Você fala direto comigo, da primeira conversa ao site no ar.</p>
           <div class="hero-actions">
-            <a href="#projetos" class="btn btn-primary">
-              <span>Conhecer meus projetos</span>
+            <a href="https://wa.me/5594999731943" class="btn btn-primary btn-lg" data-whatsapp target="_blank"
+              rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+              Conversar no WhatsApp
             </a>
-            <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+            <a href="#projetos" class="link-quiet">Ver projetos <span class="link-arrow" aria-hidden="true"><svg class="arr arr--down" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
           </div>
-
-          <ul class="social-row" id="heroSocial" aria-label="Redes sociais">
-            <!-- populated by script.js from CONFIG -->
+          <ul class="social-row" aria-label="Redes sociais">
+            <li><a href="https://github.com/juan-p4ablo00" data-config-link="github" target="_blank" rel="noopener"
+                aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github" /></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/juan-pablo-nascimento/" data-config-link="linkedin" target="_blank"
+                rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin" /></svg></a></li>
+            <li><a href="https://www.instagram.com/jpitech.00/" data-config-link="instagram" target="_blank"
+                rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram" /></svg></a></li>
+            <li><a href="https://wa.me/5594999731943" data-whatsapp target="_blank" rel="noopener"
+                aria-label="WhatsApp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg></a></li>
           </ul>
         </div>
 
-        <div class="hero-visual" data-reveal>
-          <div class="visual-frame">
-            <div class="visual-ring"></div>
-            <div class="visual-photo">
-              <!--   <span class="visual-photo-mark" id="heroMonogram">JS</span>
-            <span class="visual-photo-hint">insira sua foto aqui</span> -->
-              <img class="profile-photo" src="juan gostosão.png" alt="Minha foto">
-            </div>
-            <div class="visual-line visual-line--h"></div>
-            <div class="visual-line visual-line--v"></div>
-            <div class="visual-badge">
-              <span class="status-dot"></span>
-              disponível para novos projetos<span class="cursor">_</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <a href="#sobre" class="scroll-cue" aria-hidden="true">
-        <span class="scroll-cue-line"></span>
-        <span class="scroll-cue-text">scroll</span>
-      </a>
-    </section>
-
-    <!-- ============ SOBRE ============ -->
-    <section class="about" id="sobre">
-      <div class="container about-grid">
-        <div data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Sobre mim</p>
-          <h2 class="section-title">Por trás do código.</h2>
-          <p class="about-text">Sou desenvolvedor focado na criação de soluções digitais modernas, funcionais e pensadas
-            para resolver problemas reais.</p>
-        </div>
-
-        <div class="about-points" data-reveal>
-          <div class="point-card">
-            <span class="point-index">01</span>
-            <div>
-              <h3>Desenvolvimento</h3>
-              <p>Criação de sites e aplicações modernas.</p>
-            </div>
-          </div>
-          <div class="point-card">
-            <span class="point-index">02</span>
-            <div>
-              <h3>Automação</h3>
-              <p>Processos mais rápidos e inteligentes.</p>
-            </div>
-          </div>
-          <div class="point-card">
-            <span class="point-index">03</span>
-            <div>
-              <h3>Inteligência Artificial</h3>
-              <p>Soluções capazes de melhorar atendimento e operações.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SOLUÇÕES ============ -->
-    <section class="solutions" id="solucoes">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Soluções</p>
-          <h2 class="section-title">O que posso desenvolver para o seu negócio</h2>
-        </div>
-
-        <div class="solutions-grid">
-          <article class="solution-card" data-reveal>
-            <div class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M3 5h18M3 12h18M3 19h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              </svg>
-            </div>
-            <h3>Landing Pages</h3>
-            <p>Páginas modernas desenvolvidas para apresentar produtos, serviços ou campanhas.</p>
-          </article>
-
-          <article class="solution-card" data-reveal>
-            <div class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="13" rx="1.4" stroke="currentColor" stroke-width="1.6" />
-                <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              </svg>
-            </div>
-            <h3>Sites Profissionais</h3>
-            <p>Presença digital moderna para empresas, profissionais e negócios.</p>
-          </article>
-
-          <article class="solution-card" data-reveal>
-            <div class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 4h16v12H8l-4 4V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-                <circle cx="9" cy="10" r="1" fill="currentColor" />
-                <circle cx="12" cy="10" r="1" fill="currentColor" />
-                <circle cx="15" cy="10" r="1" fill="currentColor" />
-              </svg>
-            </div>
-            <h3>Sistema de Atendimento 24h</h3>
-            <p>Soluções inteligentes para automatizar atendimento, responder clientes e organizar informações.</p>
-          </article>
-
-          <article class="solution-card" data-reveal>
-            <div class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
-                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-            </div>
-            <h3>Automações Inteligentes</h3>
-            <p>Automatização de tarefas e processos repetitivos para economizar tempo.</p>
-          </article>
-
-          <article class="solution-card" data-reveal>
-            <div class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 2 3 6.5v9L12 20l9-4.5v-9L12 2Z" stroke="currentColor" stroke-width="1.6"
-                  stroke-linejoin="round" />
-                <path d="M12 11v9M12 11 3.6 6.6M12 11l8.4-4.4" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-            </div>
-            <h3>Soluções Personalizadas</h3>
-            <p>Projetos desenvolvidos de acordo com a necessidade do negócio.</p>
-          </article>
-        </div>
+        <p class="hero-caption">
+          <span class="caption-name">Juan Pablo, desenvolvedor web</span>
+          <span class="caption-place">Goianésia do Pará, PA · online para todo o Brasil</span>
+          <span class="caption-status"><span class="status-dot" aria-hidden="true"></span>Disponível para novos
+            projetos</span>
+        </p>
       </div>
     </section>
 
     <!-- ============ PROJETOS ============ -->
-    <section class="projects" id="projetos">
-      <div class="container">
-        <div class="section-head section-head--split" data-reveal>
+    <section class="section work" id="projetos" aria-labelledby="work-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="work-title">Projetos</h2>
+          <p class="section-lead">Esboços de interface para três negócios que vivem de confiança: uma imobiliária, uma
+            clínica de estética e um escritório de advocacia.</p>
+        </header>
+
+        <ol class="work-index" id="workIndex">
+          <li class="work-row" data-reveal>
+            <a class="work-trigger" href="https://nobrega-imoveis-de.vercel.app/" data-case="nobrega"
+              data-preview="assets/img/projetos/nobrega-capa-800.webp" aria-haspopup="dialog">
+              <img class="work-thumb" src="assets/img/projetos/nobrega-capa-800.webp" width="800" height="500" alt=""
+                loading="lazy" decoding="async">
+              <span class="work-num" aria-hidden="true">01</span>
+              <span class="work-name">Nóbrega Imóveis</span>
+              <span class="work-meta">Imobiliário · Landing page</span>
+              <span class="work-tag">Esboço</span>
+              <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
+            </a>
+          </li>
+          <li class="work-row" data-reveal style="--d:1">
+            <a class="work-trigger" href="https://clinica-amostra.vercel.app/" data-case="lumiere"
+              data-preview="assets/img/projetos/lumiere-capa-800.webp" aria-haspopup="dialog">
+              <img class="work-thumb" src="assets/img/projetos/lumiere-capa-800.webp" width="800" height="500" alt=""
+                loading="lazy" decoding="async">
+              <span class="work-num" aria-hidden="true">02</span>
+              <span class="work-name">Lumière Estética</span>
+              <span class="work-meta">Estética · Landing page</span>
+              <span class="work-tag">Esboço</span>
+              <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
+            </a>
+          </li>
+          <li class="work-row" data-reveal style="--d:2">
+            <a class="work-trigger" href="https://advocacia1.vercel.app/" data-case="advocacia"
+              data-preview="assets/img/projetos/advocacia-capa-800.webp" aria-haspopup="dialog">
+              <img class="work-thumb" src="assets/img/projetos/advocacia-capa-800.webp" width="800" height="500" alt=""
+                loading="lazy" decoding="async">
+              <span class="work-num" aria-hidden="true">03</span>
+              <span class="work-name">Andrade &amp; Bittencourt</span>
+              <span class="work-meta">Advocacia · Site institucional</span>
+              <span class="work-tag">Esboço</span>
+              <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
+            </a>
+          </li>
+        </ol>
+      </div>
+
+      <div class="work-preview" id="workPreview" aria-hidden="true">
+        <img src="assets/img/projetos/nobrega-capa-800.webp" alt="" width="800" height="500">
+      </div>
+    </section>
+
+    <!-- ============ SOLUÇÕES ============ -->
+    <section class="section services" id="solucoes" aria-labelledby="services-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="services-title">Soluções</h2>
+          <p class="section-lead">Comece pelo problema do seu negócio. A parte técnica fica comigo.</p>
+        </header>
+
+        <div class="service-list">
+          <details class="service service--main" name="servicos" data-reveal>
+            <summary>
+              <span class="service-name">Landing Pages</span>
+              <span class="service-question">Vai lançar um produto, um serviço ou uma campanha?</span>
+              <span class="service-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="service-body">
+              <div class="service-text">
+                <p>Uma página com um único objetivo: fazer a pessoa entender a sua oferta e chamar você. Sem menus que
+                  distraem, sem informação sobrando.</p>
+                <p class="service-gain"><strong>O que muda:</strong> quem chega pelo anúncio ou pelo Instagram
+                  encontra exatamente o que procurava.</p>
+                <a class="link-arrow-text" data-whatsapp
+                  data-msg="Olá! Vim pelo seu site e quero conversar sobre uma landing page."
+                  href="https://wa.me/5594999731943" target="_blank" rel="noopener">Conversar sobre uma landing page
+                  <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+              </div>
+            </div>
+          </details>
+
+          <details class="service service--main" name="servicos" data-reveal style="--d:1">
+            <summary>
+              <span class="service-name">Sites Profissionais</span>
+              <span class="service-question">O seu negócio passa confiança na internet?</span>
+              <span class="service-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="service-body">
+              <div class="service-text">
+                <p>Um site completo que mostra quem você é, o que oferece e como falar com você, feito para funcionar
+                  bem no celular e no computador.</p>
+                <p class="service-gain"><strong>O que muda:</strong> quando alguém pesquisa o seu negócio, encontra
+                  uma empresa que parece tão séria quanto ela é.</p>
+                <a class="link-arrow-text" data-whatsapp
+                  data-msg="Olá! Vim pelo seu site e quero conversar sobre um site profissional."
+                  href="https://wa.me/5594999731943" target="_blank" rel="noopener">Conversar sobre um site
+                  <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+              </div>
+            </div>
+          </details>
+
+          <details class="service service--main service--demo" name="servicos" open data-reveal style="--d:2">
+            <summary>
+              <span class="service-name">Sistema de Atendimento 24h</span>
+              <span class="service-question">Perde cliente quando não consegue responder a tempo?</span>
+              <span class="service-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="service-body">
+              <div class="service-text">
+                <p>Um atendimento automático no WhatsApp que responde às dúvidas mais comuns, organiza os pedidos e
+                  passa para você o que precisa da sua atenção, a qualquer hora.</p>
+                <p class="service-gain"><strong>O que muda:</strong> a mensagem das 23h não fica sem resposta até o
+                  dia seguinte.</p>
+                <a class="link-arrow-text" data-whatsapp
+                  data-msg="Olá! Vim pelo seu site e quero conversar sobre um sistema de atendimento 24h."
+                  href="https://wa.me/5594999731943" target="_blank" rel="noopener">Conversar sobre atendimento 24h
+                  <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+              </div>
+              <figure class="chat-demo">
+                <div class="chat-log" role="img"
+                  aria-label="Exemplo ilustrativo: às 23h14 um cliente pergunta se o negócio abre no sábado, e o atendimento automático responde e reserva um horário.">
+                  <p class="chat-msg chat-msg--in">Oi! Vocês abrem no sábado?<time>23:14</time></p>
+                  <p class="chat-msg chat-msg--out">Oi! Abrimos no sábado, das 9h às 13h. Quer que eu reserve um
+                    horário?<time>23:14</time></p>
+                  <p class="chat-msg chat-msg--in">Quero, às 10h<time>23:15</time></p>
+                  <p class="chat-msg chat-msg--out">Pronto, reservado para sábado às 10h. A confirmação chega por
+                    aqui.<time>23:15</time></p>
+                </div>
+                <figcaption>Exemplo ilustrativo</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="service" name="servicos" data-reveal>
+            <summary>
+              <span class="service-name">Automações Inteligentes</span>
+              <span class="service-question">Gasta horas com tarefas que se repetem todo dia?</span>
+              <span class="service-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="service-body">
+              <div class="service-text">
+                <p>Automatizo tarefas repetitivas do dia a dia, como mensagens, planilhas e avisos, conectando as
+                  ferramentas que você já usa com N8N e IA.</p>
+                <p class="service-gain"><strong>O que muda:</strong> o tempo gasto copiando e colando volta para o
+                  que só você pode fazer.</p>
+                <a class="link-arrow-text" data-whatsapp
+                  data-msg="Olá! Vim pelo seu site e quero conversar sobre automações."
+                  href="https://wa.me/5594999731943" target="_blank" rel="noopener">Conversar sobre automações
+                  <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+              </div>
+            </div>
+          </details>
+
+          <details class="service" name="servicos" data-reveal style="--d:1">
+            <summary>
+              <span class="service-name">Soluções Personalizadas</span>
+              <span class="service-question">Precisa de algo que não existe pronto?</span>
+              <span class="service-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="service-body">
+              <div class="service-text">
+                <p>Um sistema ou uma ferramenta pensada para a rotina do seu negócio, do jeito que ele já funciona.</p>
+                <p class="service-gain"><strong>O que muda:</strong> a ferramenta se adapta ao seu processo, e não
+                  você a ela.</p>
+                <a class="link-arrow-text" data-whatsapp
+                  data-msg="Olá! Vim pelo seu site e quero conversar sobre uma solução personalizada."
+                  href="https://wa.me/5594999731943" target="_blank" rel="noopener">Conversar sobre o seu projeto
+                  <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section about" id="sobre" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div class="about-side" data-reveal>
+          <h2 class="section-title" id="about-title">Sobre</h2>
+          <figure class="about-work">
+            <div class="about-phones">
+              <img src="assets/img/projetos/nobrega-celular-topo.webp" width="600" height="1060" alt="" loading="lazy"
+                decoding="async">
+              <img src="assets/img/projetos/lumiere-celular-topo.webp" width="600" height="1060" alt="" loading="lazy"
+                decoding="async">
+              <img src="assets/img/projetos/advocacia-celular-topo.webp" width="600" height="1060" alt="" loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption>Os três esboços no celular: Nóbrega, Lumière e Andrade &amp; Bittencourt.</figcaption>
+          </figure>
+        </div>
+
+        <div class="about-copy" data-reveal style="--d:1">
+          <p class="about-statement">Sou Juan Pablo. Crio sites e automações para negócios que querem ser levados a
+            sério na internet.</p>
+          <p>Penso primeiro em quem vai visitar o seu site: o que essa pessoa precisa entender em poucos segundos e
+            qual é o caminho mais curto até falar com você. O código vem depois, e é responsabilidade minha.</p>
+          <p>Trabalho sozinho, de propósito. Quem conversa com você é quem desenvolve, então nada se perde entre o
+            que você imaginou e o que vai ao ar.</p>
+        </div>
+
+        <dl class="about-facts" data-reveal style="--d:2">
           <div>
-            <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Projetos</p>
-            <h2 class="section-title">Alguns projetos</h2>
+            <dt>Base</dt>
+            <dd>Goianésia do Pará, PA</dd>
           </div>
-          <a href="https://wa.me/94999731943?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." id="projectsWhatsappBtn" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver todos os projetos <span>&rarr;</span></a>
-        </div>
-
-        <div class="projects-grid">
-
-          <article class="project-card" data-reveal>
-            <div class="project-media project-media--1">
-              <img src="assets/Captura de tela 2026-08-28 152407.png" alt="Página inicial da Nóbrega Imóveis">
-            </div>
-            <div class="project-body">
-              <span class="project-category">Landing Page</span>
-              <h3>Nóbrega Imóveis</h3>
-              <p>Site institucional para apresentação de empreendimentos e oportunidades imobiliárias.(esboço)</p>
-              <div class="project-tags">
-              <!-- <span>HTML</span><span>CSS</span><span>JavaScript</span>-->
-              </div>
-              <a href="https://nobrega-imoveis-de.vercel.app/#empreendimentos" class="link-arrow link-arrow--sm"
-                target="_blank" rel="noopener">Ver projeto <span>&rarr;</span></a>
-            </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <div class="project-media project-media--2">
-              <img src="assets/Lumière.png" alt="Lumière">
-            </div>
-            <div class="project-body">
-              <span class="project-category">Aplicação web/landing page</span>
-              <h3>Lumière estética</h3>
-              <p>Site moderno e atrativo para a divulgação de um trabalho exemplar.</p>
-              <div class="project-tags">
-                <!--<span>React</span><span>Node.js</span><span>API</span>-->
-              </div>
-              <a href="https://clinica-amostra.vercel.app/" class="link-arrow link-arrow--sm">Ver projeto
-                <span>&rarr;</span></a>
-            </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <div class="project-media project-media--3">
-              <img src="assets/Captura de tela 2026-08-31 213801.png" alt="">
-            </div>
-            <div class="project-body">
-              <span class="project-category">Aplicação web/landing page</span>
-              <h3>Advocacia Andrade & Bittencourt</h3>
-              <p>Site institucional de um escritório de advocacia especializado em Direito Previdenciário, oferecendo
-                atendimento digital com foco em benefícios do INSS, contribuições e planejamento previdenciário. (esboço)
-
-              </p>
-              <div class="project-tags">
-                <!--<span>Python</span><span>N8N</span><span>IA</span> -->
-              </div>
-              <a href="https://advocacia1.vercel.app/" class="link-arrow link-arrow--sm">Ver projeto
-                <span>&rarr;</span></a>
-            </div>
-          </article>
-
-         <!-- <article class="project-card" data-reveal>
-            <div class="project-media project-media--4">
-              <span class="project-media-hint">imagem do projeto</span>
-            </div>
-            <div class="project-body">
-              <span class="project-category">Sistema de controle</span>
-              <h3>Nome do Projeto 04</h3>
-              <p>Breve descrição do projeto, destacando o problema resolvido e o resultado entregue.</p>
-              <div class="project-tags">
-                --<span>JavaScript</span><span>PHP</span><span>MySQL</span>
-              </div>
-              <a href="#" class="link-arrow link-arrow--sm">Ver projeto <span>&rarr;</span></a>
-            </div>
-          </article> -->
-
-        </div>
+          <div>
+            <dt>Atendimento</dt>
+            <dd>Online, para todo o Brasil</dd>
+          </div>
+          <div>
+            <dt>Contato</dt>
+            <dd>Direto comigo, pelo WhatsApp</dd>
+          </div>
+          <div>
+            <dt>Ferramentas</dt>
+            <dd>HTML, CSS, JavaScript, Node, SQL, APIs REST, IA e N8N</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- ============ TECNOLOGIAS ============ -->
-    <section class="tech" id="tecnologias">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Tecnologia</p>
-          <h2 class="section-title">Tecnologia por trás das soluções.</h2>
-        </div>
+    <!-- ============ COMO TRABALHO ============ -->
+    <section class="section process" id="processo" aria-labelledby="process-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="process-title">Como trabalho</h2>
+          <p class="section-lead">Quatro etapas, da primeira mensagem ao site no ar.</p>
+        </header>
 
-        <div class="tech-grid" data-reveal>
-          <div class="tech-chip"><span>HTML</span></div>
-          <div class="tech-chip"><span>CSS</span></div>
-          <div class="tech-chip"><span>JS</span></div>
-          <div class="tech-chip"><span>SQL</span></div>
-          <div class="tech-chip"><span>API REST</span></div>
-          <div class="tech-chip"><span>NODE</span></div>
-          <div class="tech-chip"><span>IA</span></div>
-          <div class="tech-chip"><span>N8N</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROVA VISUAL ============ 
-    <section class="showcase" id="pratica">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Prova visual</p>
-          <h2 class="section-title">Veja na prática.</h2>
-        </div>
-
-        <div class="showcase-grid" data-reveal>
-          <button class="showcase-item showcase-item--1" data-lightbox-index="0">
-            <span class="showcase-hint">ampliar</span>
-          </button>
-          <button class="showcase-item showcase-item--2" data-lightbox-index="1">
-            <span class="showcase-hint">ampliar</span>
-          </button>
-          <button class="showcase-item showcase-item--3" data-lightbox-index="2">
-            <span class="showcase-hint">ampliar</span>
-          </button>
-          <button class="showcase-item showcase-item--4" data-lightbox-index="3">
-            <span class="showcase-hint">ampliar</span>
-          </button>
-        </div>
-      </div>
-    </section>-->
-
-    <!-- ============ FEEDBACKS ============ -->
-    <section class="testimonials" id="feedbacks">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Feedbacks</p>
-          <h2 class="section-title">Quem já trabalhou comigo.</h2>
-        </div>
-
-        <div class="testimonial-slider" data-reveal>
-          <div class="testimonial-track" id="testimonialTrack">
-            <article class="testimonial-card">
-              <p class="testimonial-quote">&ldquo;O atendimento foi muito claro desde o início, e o resultado final superou a expectativa. A landing page ficou moderna, funcional e muito alinhada com a nossa proposta.&rdquo;</p>
-              <div class="testimonial-author">
-                <span class="testimonial-avatar" aria-hidden="true">MC</span>
-                <div>
-                  <strong>Marina Costa</strong>
-                  <span>Fundadora — Studio M</span>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <p class="testimonial-quote">&ldquo;Foi excelente trabalhar com alguém que entende estratégia, estética e conversão ao mesmo tempo. O site ajudou a dar mais profissionalismo ao nosso negócio.&rdquo;</p>
-              <div class="testimonial-author">
-                <span class="testimonial-avatar" aria-hidden="true">RL</span>
-                <div>
-                  <strong>Rafael Lima</strong>
-                  <span>Diretor — Nóbrega Imóveis</span>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <p class="testimonial-quote">&ldquo;A comunicação foi direta, o processo foi organizado e o resultado final ficou muito forte. Recomendo por competência e atenção aos detalhes.&rdquo;</p>
-              <div class="testimonial-author">
-                <span class="testimonial-avatar" aria-hidden="true">AB</span>
-                <div>
-                  <strong>Ana Beatriz</strong>
-                  <span>Marketing — Clínica Lumière</span>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="testimonial-controls">
-            <button class="testimonial-arrow" id="testimonialPrev" aria-label="Depoimento anterior">&larr;</button>
-            <div class="testimonial-dots" id="testimonialDots"></div>
-            <button class="testimonial-arrow" id="testimonialNext" aria-label="Próximo depoimento">&rarr;</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROCESSO ============ -->
-    <section class="process" id="processo">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Processo</p>
-          <h2 class="section-title">Do primeiro contato à entrega.</h2>
-        </div>
-
-        <div class="process-line" data-reveal>
-          <div class="process-step">
-            <span class="process-index">01</span>
-            <h3>Conversa</h3>
-          </div>
-          <div class="process-step">
-            <span class="process-index">02</span>
-            <h3>Planejamento</h3>
-          </div>
-          <div class="process-step">
-            <span class="process-index">03</span>
-            <h3>Desenvolvimento</h3>
-          </div>
-          <div class="process-step">
-            <span class="process-index">04</span>
-            <h3>Entrega</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CTA FINAL ============ -->
-    <section class="cta-final">
-      <div class="container cta-final-inner" data-reveal>
-        <div class="cta-glow" aria-hidden="true"></div>
-        <h2>Tem uma ideia? <span class="accent">Vamos tirá-la do papel.</span></h2>
-        <p>Se você precisa de um site, automação ou solução digital, vamos conversar.</p>
-        <a href="#contato" class="btn btn-primary btn-lg">Falar comigo</a>
-      </div>
-    </section>
-
-    <!-- ============ CONTATO ============ -->
-    <section class="contact" id="contato">
-      <div class="container contact-grid">
-        <div data-reveal>
-          <p class="eyebrow"><span class="eyebrow-tag">&lt;/&gt;</span>Contato</p>
-          <h2 class="section-title">Vamos conversar?</h2>
-          <p class="about-text">Tenho interesse em novos projetos e oportunidades. Fale comigo pelo canal que preferir.
-          </p>
-          <a href="https://wa.me/94999731943?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." id="contactMainBtn" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Entrar em
-            contato</a>
-        </div>
-
-        <ul class="contact-list" data-reveal>
-          <li>
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.4" />
-                <path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.4" />
-              </svg>
-            </span>
-            <div>
-              <span class="contact-label">E-mail</span>
-              <a href="mailto:juanpablon277@gmail.com" id="contactEmail">juanpablon277@gmail.com</a>
-            </div>
+        <ol class="steps" id="steps">
+          <li class="step" data-reveal>
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3 class="step-title">Conversa</h3>
+            <p>Você me conta sobre o negócio e o que precisa, pelo WhatsApp. Eu entendo o objetivo antes de propor
+              qualquer coisa.</p>
           </li>
-          <li>
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M20.5 17.4c0 .4-.1.9-.3 1.3-.3.6-1.6 1.2-2.3 1.3-.6.1-1.3.2-4-.9-3.4-1.4-5.6-4.8-5.7-5-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.6 1.2-3 .3-.3.7-.5 1.1-.5h.8c.3 0 .6 0 .8.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.5-.2.9.2.4.9 1.6 2 2.6 1.4 1.2 2.5 1.6 2.9 1.8.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.2.4.2.6.3.7.4.1.2.1.9.1 1.2Z"
-                  stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-              </svg>
-            </span>
-            <div>
-              <span class="contact-label">WhatsApp</span>
-              <a href="https://wa.me/94999731943?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." id="contactWhatsapp" target="_blank" rel="noopener">Enviar mensagem</a>
-            </div>
+          <li class="step" data-reveal style="--d:1">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3 class="step-title">Planejamento</h3>
+            <p>Defino a estrutura, o conteúdo e o caminho que o seu cliente vai percorrer até falar com você.</p>
           </li>
-          <li>
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.4" />
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4" />
-                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
-              </svg>
-            </span>
-            <div>
-              <span class="contact-label">Instagram</span>
-              <a href="https://www.instagram.com/jpitech.00/" id="contactInstagram" target="_blank" rel="noopener">@jpitech.00</a>
-            </div>
+          <li class="step" data-reveal style="--d:2">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3 class="step-title">Desenvolvimento</h3>
+            <p>Construo o site ou a automação. Antes de publicar, você revisa e pede os ajustes que quiser.</p>
           </li>
-        </ul>
+          <li class="step" data-reveal style="--d:3">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3 class="step-title">Entrega</h3>
+            <p>Coloco o projeto no ar e continuo por perto para o suporte depois da entrega.</p>
+          </li>
+        </ol>
+
+        <div class="promises" data-reveal>
+          <h3 class="promises-title">O que você pode esperar</h3>
+          <ul class="promise-list">
+            <li><strong>Falar direto comigo</strong><span>Do primeiro contato à entrega, sem intermediário.</span></li>
+            <li><strong>Ajustes antes da entrega</strong><span>Você revisa e pede mudanças antes de publicar.</span>
+            </li>
+            <li><strong>Site publicado por mim</strong><span>Eu cuido de colocar no ar, com domínio e
+                hospedagem.</span></li>
+            <li><strong>Suporte depois da entrega</strong><span>Continuo disponível quando você precisar ajustar
+                algo.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO / CTA FINAL ============ -->
+    <section class="closing" id="contato" aria-labelledby="closing-title">
+      <svg class="closing-mark" viewBox="0 0 34 20" aria-hidden="true">
+        <path d="M9 3 2 10l7 7M20.5 1.5 13.5 18.5M25 3l7 7-7 7" />
+      </svg>
+      <div class="shell closing-inner">
+        <h2 class="closing-title" id="closing-title" data-reveal>Seu próximo projeto começa com uma mensagem.</h2>
+        <div class="closing-body" data-reveal style="--d:1">
+          <p class="closing-sub">Conte o que o seu negócio precisa. Quem responde sou eu.</p>
+          <div class="closing-buttons">
+            <a href="https://wa.me/5594999731943" class="btn btn-light btn-lg" data-whatsapp target="_blank"
+              rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+              Conversar no WhatsApp
+            </a>
+            <a href="mailto:juanpablon277@gmail.com" class="btn btn-outline-light btn-lg" data-config-link="mailto">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail" /></svg>
+              Enviar e-mail
+            </a>
+            <a href="https://www.instagram.com/jpitech.00/" class="btn btn-outline-light btn-lg"
+              data-config-link="instagram" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram" /></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -484,37 +472,186 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="shell footer-grid">
       <div class="footer-brand">
-        <a href="#inicio" class="brand">
-          <span class="brand-mark">&lt;/&gt;</span>
-          <span class="brand-name" data-config="name">Juan Pablo</span>
+        <a href="#inicio" class="brand" aria-label="Juan Pablo, JPI: voltar ao início">
+          <svg class="brand-mark" viewBox="0 0 34 20" aria-hidden="true">
+            <path d="M9 3 2 10l7 7M20.5 1.5 13.5 18.5M25 3l7 7-7 7" />
+          </svg>
+          <span class="brand-name">Juan Pablo</span>
         </a>
-        <p>Desenvolvedor Web &amp; Soluções Digitais</p>
+        <p>Desenvolvimento web para negócios.<br>Goianésia do Pará, PA · online para todo o Brasil.</p>
       </div>
 
-      <nav class="footer-nav" aria-label="Links do rodapé">
-        <a href="#sobre">Sobre</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <ul>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#processo">Como trabalho</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
       </nav>
 
-      <ul class="social-row" id="footerSocial" aria-label="Redes sociais">
-        <!-- populated by script.js from CONFIG -->
+      <ul class="footer-social" aria-label="Redes e contato">
+        <li><a href="https://wa.me/5594999731943" data-whatsapp target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/jpitech.00/" data-config-link="instagram" target="_blank"
+            rel="noopener">Instagram</a></li>
+        <li><a href="https://github.com/juan-p4ablo00" data-config-link="github" target="_blank"
+            rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/juan-pablo-nascimento/" data-config-link="linkedin" target="_blank"
+            rel="noopener">LinkedIn</a></li>
       </ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>&copy; <span id="footerYear"></span> <span data-config="name">Juan Pablo</span>. Todos os direitos
-        reservados.</span>
+
+      <p class="footer-legal">© <span id="footerYear">2026</span> Juan Pablo · JPI</p>
     </div>
   </footer>
 
-  <!-- ============ LIGHTBOX ============ -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
-    <div class="lightbox-frame" id="lightboxFrame"></div>
-  </div>
+  <!-- ============ CTA FIXO (MOBILE) ============ -->
+  <a href="https://wa.me/5594999731943" class="mobile-cta" id="mobileCta" data-whatsapp target="_blank"
+    rel="noopener">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+    Conversar no WhatsApp
+  </a>
+
+  <!-- ============ CASES (dialog) ============ -->
+  <dialog class="case" id="caseDialog" aria-labelledby="caseTitle">
+    <div class="case-bar">
+      <button class="case-close" type="button" id="caseClose" aria-label="Fechar case">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+    </div>
+    <div class="case-sheet">
+
+      <article class="case-body" data-case="nobrega" hidden>
+        <p class="case-meta">Imobiliário de alto padrão · Landing page · Esboço</p>
+        <h2 class="case-title">Nóbrega Imóveis</h2>
+        <figure class="case-cover">
+          <img src="assets/img/projetos/nobrega-capa.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Tela inicial do esboço Nóbrega Imóveis: fotografia de uma casa com piscina e o título em serifa branca">
+        </figure>
+        <dl class="case-facts">
+          <div>
+            <dt>Problema</dt>
+            <dd>Quem compra um imóvel de alto padrão decide pela confiança antes mesmo da visita. O site precisava
+              transmitir exclusividade sem parecer um classificado.</dd>
+          </div>
+          <div>
+            <dt>Direção</dt>
+            <dd>Silêncio visual: fotografia grande, tipografia serifada e muito espaço. O luxo aparece na calma da
+              página, e não em anúncios.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Uma landing page com seleção de imóveis filtrável (casas, coberturas e terrenos), manifesto da marca,
+              perguntas frequentes e contato direto com um curador.</dd>
+          </div>
+        </dl>
+        <h3 class="case-subtitle">Resultado visual</h3>
+        <div class="case-gallery">
+          <img src="assets/img/projetos/nobrega-secao.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Seleção de imóveis do esboço, com filtros por tipo e três cards com foto">
+          <img src="assets/img/projetos/nobrega-celular.webp" loading="lazy" decoding="async" width="600" height="1298"
+            alt="Versão para celular do esboço Nóbrega Imóveis">
+        </div>
+        <a class="btn btn-ghost" href="https://nobrega-imoveis-de.vercel.app/" target="_blank" rel="noopener">Abrir o
+          esboço <svg class="arr arr--out" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </article>
+
+      <article class="case-body" data-case="lumiere" hidden>
+        <p class="case-meta">Estética e bem-estar · Landing page · Esboço</p>
+        <h2 class="case-title">Lumière Estética</h2>
+        <figure class="case-cover">
+          <img src="assets/img/projetos/lumiere-capa.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Tela inicial do esboço Lumière Estética: fundo claro, título em serifa e botão de agendar avaliação">
+        </figure>
+        <dl class="case-facts">
+          <div>
+            <dt>Problema</dt>
+            <dd>Numa clínica de estética, a cliente precisa sentir cuidado antes de marcar a primeira avaliação.</dd>
+          </div>
+          <div>
+            <dt>Direção</dt>
+            <dd>Luz, tons de pele e uma serifa delicada. Uma página leve e acolhedora, com o agendamento sempre à
+              vista.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Tratamentos explicados em linguagem simples, apresentação da clínica, horários de atendimento e o
+              botão de agendar presente do topo ao rodapé.</dd>
+          </div>
+        </dl>
+        <h3 class="case-subtitle">Resultado visual</h3>
+        <div class="case-gallery">
+          <img src="assets/img/projetos/lumiere-secao.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Seção de tratamentos do esboço, com seis cards claros">
+          <img src="assets/img/projetos/lumiere-celular.webp" loading="lazy" decoding="async" width="600" height="1298"
+            alt="Versão para celular do esboço Lumière Estética">
+        </div>
+        <a class="btn btn-ghost" href="https://clinica-amostra.vercel.app/" target="_blank" rel="noopener">Abrir o
+          esboço <svg class="arr arr--out" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </article>
+
+      <article class="case-body" data-case="advocacia" hidden>
+        <p class="case-meta">Direito previdenciário · Site institucional · Esboço</p>
+        <h2 class="case-title">Andrade &amp; Bittencourt</h2>
+        <figure class="case-cover">
+          <img src="assets/img/projetos/advocacia-capa.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Tela inicial do esboço Andrade & Bittencourt: fundo escuro, aperto de mãos e título em serifa">
+        </figure>
+        <dl class="case-facts">
+          <div>
+            <dt>Problema</dt>
+            <dd>Quem procura um advogado do INSS chega cheio de dúvidas e com receio do “juridiquês”. O primeiro
+              contato precisava ser simples.</dd>
+          </div>
+          <div>
+            <dt>Direção</dt>
+            <dd>Autoridade sem frieza: fundo escuro, serifa clássica e uma linguagem direta, pensada para o
+              atendimento 100% digital.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Uma central de dúvidas filtrada por tema e uma triagem guiada em três perguntas, que prepara a
+              conversa no WhatsApp antes de falar com o advogado.</dd>
+          </div>
+        </dl>
+        <h3 class="case-subtitle">Resultado visual</h3>
+        <div class="case-gallery">
+          <img src="assets/img/projetos/advocacia-secao.webp" loading="lazy" decoding="async" width="1600" height="1000"
+            alt="Triagem guiada do esboço: primeira de três perguntas, com quatro opções de objetivo">
+          <img src="assets/img/projetos/advocacia-celular.webp" loading="lazy" decoding="async" width="600" height="1298"
+            alt="Versão para celular do esboço Andrade & Bittencourt">
+        </div>
+        <a class="btn btn-ghost" href="https://advocacia1.vercel.app/" target="_blank" rel="noopener">Abrir o
+          esboço <svg class="arr arr--out" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      </article>
+    </div>
+  </dialog>
+
+  <!-- ============ ÍCONES ============ -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.08L2 22l5.08-1.33A9.96 9.96 0 0 0 12.02 22C17.55 22 22 17.52 22 12S17.55 2 12.02 2Zm5.86 14.3c-.25.7-1.44 1.34-1.99 1.42-.51.08-1.15.11-1.86-.12-.43-.13-.98-.32-1.7-.62-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.47.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.06.92 2.21.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.32.4-.45.53-.15.15-.3.32-.13.62.17.3.77 1.27 1.65 2.06 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.42Z" />
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <g fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"/></g>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <g fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.75 8.98h8.46V23H.75V8.98ZM14.98 8.98h-8.1V23h8.1v-7.36c0-1.94.37-3.82 2.78-3.82 2.37 0 2.4 2.22 2.4 3.95V23H23V14.9c0-5.16-1.1-9.13-7.14-9.13-2.9 0-4.84 1.6-5.64 3.11h-.08V8.98H14.98Z"/></g>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></g>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4V4Z"/><path d="M4 6l8 7 8-7"/></g>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        d="M5 12h14M13 6l6 6-6 6" />
+    </symbol>
+  </svg>
 
   <script src="script.js"></script>
 </body>

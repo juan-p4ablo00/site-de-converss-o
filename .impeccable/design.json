@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T13:00:00Z",
+  "title": "Design System: JPI · Juan Pablo",
+  "extensions": {
+    "colorMeta": {
+      "void": {
+        "role": "neutral",
+        "displayName": "Portrait Void",
+        "canonical": "#03050d",
+        "tonalRamp": [
+          "#03050d",
+          "#070b18",
+          "#0b1224",
+          "#141c33",
+          "#27314d",
+          "#4a5675",
+          "#8a95b1",
+          "#eef2fa"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "#070b18",
+        "tonalRamp": [
+          "#03050d",
+          "#070b18",
+          "#0b1224",
+          "#141c33",
+          "#27314d",
+          "#4a5675",
+          "#8a95b1",
+          "#eef2fa"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel Navy",
+        "canonical": "#0b1224",
+        "tonalRamp": [
+          "#03050d",
+          "#070b18",
+          "#0b1224",
+          "#141c33",
+          "#27314d",
+          "#4a5675",
+          "#8a95b1",
+          "#eef2fa"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(150, 170, 220, .14)"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "rgba(150, 170, 220, .28)"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#eef2fa",
+        "tonalRamp": [
+          "#1d2437",
+          "#343d56",
+          "#4f5a77",
+          "#6c7896",
+          "#8a95b1",
+          "#a9b3cc",
+          "#ccd3e3",
+          "#eef2fa"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#a9b3cc",
+        "tonalRamp": [
+          "#1d2437",
+          "#343d56",
+          "#4f5a77",
+          "#6c7896",
+          "#8a95b1",
+          "#a9b3cc",
+          "#ccd3e3",
+          "#eef2fa"
+        ]
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#8a95b1",
+        "tonalRamp": [
+          "#1d2437",
+          "#343d56",
+          "#4f5a77",
+          "#6c7896",
+          "#8a95b1",
+          "#a9b3cc",
+          "#ccd3e3",
+          "#eef2fa"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "#ffffff"
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "#2f5bff",
+        "tonalRamp": [
+          "#08133f",
+          "#0f2270",
+          "#1a3796",
+          "#2149e6",
+          "#2f5bff",
+          "#7a9dff",
+          "#b3c6ff",
+          "#dfe7ff"
+        ]
+      },
+      "blue-hover": {
+        "role": "primary",
+        "displayName": "Pressed Electric",
+        "canonical": "#2149e6",
+        "tonalRamp": [
+          "#08133f",
+          "#0f2270",
+          "#1a3796",
+          "#2149e6",
+          "#2f5bff",
+          "#7a9dff",
+          "#b3c6ff",
+          "#dfe7ff"
+        ]
+      },
+      "blue-text": {
+        "role": "primary",
+        "displayName": "Signal Blue Text",
+        "canonical": "#7a9dff",
+        "tonalRamp": [
+          "#08133f",
+          "#0f2270",
+          "#1a3796",
+          "#2149e6",
+          "#2f5bff",
+          "#7a9dff",
+          "#b3c6ff",
+          "#dfe7ff"
+        ]
+      },
+      "field": {
+        "role": "primary",
+        "displayName": "Closing Field",
+        "canonical": "#2a55f5",
+        "tonalRamp": [
+          "#08133f",
+          "#0f2270",
+          "#1a3796",
+          "#2149e6",
+          "#2a55f5",
+          "#7a9dff",
+          "#b3c6ff",
+          "#dfe7ff"
+        ]
+      },
+      "field-text": {
+        "role": "primary",
+        "displayName": "Field Ice",
+        "canonical": "#dfe7ff",
+        "tonalRamp": [
+          "#08133f",
+          "#0f2270",
+          "#1a3796",
+          "#2149e6",
+          "#2f5bff",
+          "#7a9dff",
+          "#b3c6ff",
+          "#dfe7ff"
+        ]
+      },
+      "available": {
+        "role": "tertiary",
+        "displayName": "Available Green",
+        "canonical": "#5ee39a",
+        "tonalRamp": [
+          "#08301b",
+          "#0f4d2c",
+          "#176b3e",
+          "#218c52",
+          "#33b36c",
+          "#5ee39a",
+          "#9df0c1",
+          "#dcfae8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 and closing title; expanded 106%, lines rise from masks in the hero."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and case sheet titles; expanded 108%."
+      },
+      "index": {
+        "displayName": "Index",
+        "purpose": "Project names in the work index; widest (118%) and lightest (450) cut."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Main service names; title-sm for other services and promise lines."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Secondary service names and promise lines."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Section leads and hero subline, 40-44ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text at 100% width, 52-56ch."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Row questions, metadata, footer links."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Row and step numbers (tabular), captions, fact terms; sentence case, untracked."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Pill action labels at 104% width, weight 560."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-cta",
+        "value": "0 14px 32px -10px rgba(0, 0, 0, .8)",
+        "purpose": "Only on the fixed mobile WhatsApp pill, to separate it from scrolling content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "All arrivals, reveals and state transitions."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(.65, 0, .35, 1)",
+        "purpose": "Exits (case sheet close) and the hero slash wipe."
+      },
+      {
+        "name": "state",
+        "value": ".3s",
+        "purpose": "Color and border changes on buttons and links."
+      },
+      {
+        "name": "reveal",
+        "value": ".9s, 20px rise, 90ms stagger",
+        "purpose": "Scroll reveal from a visible no-JS default."
+      },
+      {
+        "name": "hero-entrance",
+        "value": "1.1s rise per line, .09s stagger; portrait resolve 1.8s",
+        "purpose": "The single orchestrated moment."
+      },
+      {
+        "name": "reduced-motion",
+        "value": ".01ms",
+        "purpose": "All animations and transitions collapse; scroll-linked effects stop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs-max",
+        "value": "479px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "960px"
+      },
+      {
+        "name": "hero-caption-tablet",
+        "value": "960px-1199px"
+      },
+      {
+        "name": "index-resting-thumbs",
+        "value": "1400px (hover + fine pointer)"
+      },
+      {
+        "name": "fine-pointer",
+        "value": "(hover: hover) and (pointer: fine)"
+      },
+      {
+        "name": "landscape-phone",
+        "value": "max-width 959px and max-height 520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The WhatsApp action; blue pill with white label.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z\"/></svg>Conversar no WhatsApp</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: .9375rem; font-weight: 560; font-stretch: 104%; letter-spacing: .005em; text-decoration: none; white-space: nowrap; transition: background-color .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1); } .ds-btn-primary { background: var(--blue, #2f5bff); color: #fff; } .ds-btn-primary:hover { background: var(--blue-hover, #2149e6); } .ds-btn:active { transform: scale(.98); } .ds-btn:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "White pill used only on the blue closing field.",
+      "html": "<div style=\"background:#2a55f5;padding:24px\"><a class=\"ds-btn-light\" href=\"#\">Conversar no WhatsApp</a></div>",
+      "css": ".ds-btn-light { display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #fff; color: var(--void, #03050d); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: 1rem; font-weight: 560; font-stretch: 104%; text-decoration: none; transition: background-color .3s cubic-bezier(.16,1,.3,1); } .ds-btn-light:hover { background: var(--field-text, #dfe7ff); } .ds-btn-light:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined pill for secondary actions on the void.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Ver o esboço</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--line-strong, rgba(150,170,220,.28)); border-radius: 999px; color: var(--text, #eef2fa); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: .9375rem; font-weight: 560; font-stretch: 104%; text-decoration: none; transition: border-color .3s cubic-bezier(.16,1,.3,1); } .ds-btn-ghost:hover { border-color: var(--text-2, #a9b3cc); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Outline Light Button",
+      "kind": "button",
+      "refersTo": "button-outline-light",
+      "description": "Secondary pill on the blue closing field (e-mail, Instagram): same size as the light WhatsApp button, outlined in white.",
+      "html": "<div style=\"background:#2a55f5;padding:24px\"><a class=\"ds-btn-outline-light\" href=\"#\">Enviar e-mail</a></div>",
+      "css": ".ds-btn-outline-light { display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; color: #fff; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-size: 1rem; font-weight: 560; font-stretch: 104%; text-decoration: none; transition: background-color .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1); } .ds-btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,.12); } .ds-btn-outline-light:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }"
+    },
+    {
+      "name": "Quiet Link",
+      "kind": "custom",
+      "refersTo": "link-quiet",
+      "description": "Secondary text action with a hairline underline.",
+      "html": "<a class=\"ds-link-quiet\" href=\"#\">Ver projetos <span class=\"ds-link-arrow\" aria-hidden=\"true\">&#8595;</span></a>",
+      "css": ".ds-link-quiet { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; color: var(--text-2, #a9b3cc); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--line-strong, rgba(150,170,220,.28)); text-underline-offset: 7px; transition: color .3s cubic-bezier(.16,1,.3,1), text-decoration-color .3s cubic-bezier(.16,1,.3,1); } .ds-link-quiet:hover { color: var(--text, #eef2fa); text-decoration-color: var(--text, #eef2fa); } .ds-link-arrow { display: inline-block; transition: transform .45s cubic-bezier(.16,1,.3,1); } .ds-link-quiet:hover .ds-link-arrow { transform: translateY(3px); } .ds-link-quiet:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Social Icon Link",
+      "kind": "link",
+      "refersTo": "social-icon",
+      "description": "44px circular icon link used only in the social row under the hero actions; always carries an aria-label.",
+      "html": "<a class=\"ds-social\" href=\"#\" aria-label=\"Instagram\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"4.2\"/></svg></a>",
+      "css": ".ds-social { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line-strong, rgba(150,170,220,.28)); border-radius: 50%; color: var(--text-2, #a9b3cc); transition: color .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1); } .ds-social:hover { border-color: var(--text-2, #a9b3cc); color: var(--text, #eef2fa); transform: translateY(-2px); } .ds-social:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Brand mark plus text links; current section gets a blue-text dot.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg width=\"30\" height=\"18\" viewBox=\"0 0 30 18\" fill=\"none\" stroke=\"#7a9dff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 3 2 9l6 6M17 1l-4 16M22 3l6 6-6 6\"/></svg>Juan Pablo</a><a class=\"ds-nav-link\" href=\"#\" aria-current=\"true\">Projetos</a><a class=\"ds-nav-link\" href=\"#\">Soluções</a><a class=\"ds-nav-link\" href=\"#\">Sobre</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 2px; padding: 16px 24px; background: var(--void, #03050d); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); } .ds-brand { display: inline-flex; align-items: center; gap: 12px; margin-right: auto; color: var(--text, #eef2fa); font-weight: 600; font-stretch: 110%; letter-spacing: -.01em; text-decoration: none; } .ds-nav-link { position: relative; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; color: var(--text-2, #a9b3cc); font-size: .9375rem; text-decoration: none; transition: color .3s cubic-bezier(.16,1,.3,1); } .ds-nav-link::before { content: ''; position: absolute; left: 3px; top: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--blue-text, #7a9dff); transform: translateY(-50%) scale(0); transition: transform .4s cubic-bezier(.16,1,.3,1); } .ds-nav-link:hover, .ds-nav-link[aria-current=\"true\"] { color: var(--text, #eef2fa); } .ds-nav-link[aria-current=\"true\"]::before { transform: translateY(-50%) scale(1); } .ds-nav-link:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Project Index Row",
+      "kind": "custom",
+      "refersTo": "work-row",
+      "description": "Signature ruled row: number, index-scale name, meta with quiet Esboço, arrow.",
+      "html": "<ul class=\"ds-index\"><li><button class=\"ds-index-row\"><span class=\"ds-index-num\">01</span><span class=\"ds-index-name\">Nóbrega Imóveis</span><svg class=\"ds-index-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg><span class=\"ds-index-meta\">Imobiliário de alto padrão · Landing page<span class=\"ds-quiet\"> · Esboço</span></span></button></li></ul>",
+      "css": ".ds-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line, rgba(150,170,220,.14)); background: var(--void, #03050d); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); } .ds-index li { border-top: 1px solid var(--line, rgba(150,170,220,.14)); } .ds-index-row { display: grid; width: 100%; grid-template-columns: 3.5rem minmax(0,1fr) auto; grid-template-areas: \"num name arrow\" \". meta arrow\"; align-items: center; column-gap: 24px; row-gap: 8px; padding: 32px 0; background: none; border: 0; color: var(--text, #eef2fa); text-align: left; cursor: pointer; } .ds-index-num { grid-area: num; color: var(--text-3, #8a95b1); font-size: .8125rem; font-variant-numeric: tabular-nums; } .ds-index-name { grid-area: name; font-size: clamp(1.875rem, .9rem + 4vw, 4.75rem); font-weight: 450; font-stretch: 118%; line-height: 1.02; letter-spacing: -.035em; transition: transform .7s cubic-bezier(.16,1,.3,1); } .ds-index-meta { grid-area: meta; color: var(--text-2, #a9b3cc); font-size: .9375rem; } .ds-quiet { color: var(--text-3, #8a95b1); } .ds-index-arrow { grid-area: arrow; width: 28px; height: 28px; color: var(--text-2, #a9b3cc); transition: color .4s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); } .ds-index-row:hover .ds-index-name, .ds-index-row:focus-visible .ds-index-name { transform: translateX(14px); } .ds-index-row:hover .ds-index-arrow, .ds-index-row:focus-visible .ds-index-arrow { color: var(--blue-text, #7a9dff); transform: translateX(4px) rotate(-45deg); } .ds-index-row:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Service Accordion",
+      "kind": "custom",
+      "refersTo": "service",
+      "description": "Native details row with round plus/minus toggle that turns blue-text when open.",
+      "html": "<details class=\"ds-service\"><summary><span class=\"ds-service-name\">Landing Pages</span><span class=\"ds-service-q\">Precisa que o anúncio vire conversa?</span><span class=\"ds-toggle\" aria-hidden=\"true\"></span></summary><p class=\"ds-service-body\">Uma página feita para uma ação.</p></details>",
+      "css": ".ds-service { border-top: 1px solid var(--line, rgba(150,170,220,.14)); border-bottom: 1px solid var(--line, rgba(150,170,220,.14)); background: var(--void, #03050d); color: var(--text, #eef2fa); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); } .ds-service summary { display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-areas: \"name toggle\" \"q q\"; align-items: baseline; column-gap: 24px; row-gap: 8px; padding: 28px 0; list-style: none; cursor: pointer; } .ds-service summary::-webkit-details-marker { display: none; } .ds-service-name { grid-area: name; font-size: clamp(1.375rem, 1rem + 1.5vw, 2.25rem); font-weight: 520; font-stretch: 108%; line-height: 1.1; letter-spacing: -.025em; transition: transform .6s cubic-bezier(.16,1,.3,1); } .ds-service summary:hover .ds-service-name { transform: translateX(10px); } .ds-service-q { grid-area: q; color: var(--text-2, #a9b3cc); font-size: .9375rem; } .ds-toggle { grid-area: toggle; position: relative; align-self: center; width: 32px; height: 32px; border: 1px solid var(--line-strong, rgba(150,170,220,.28)); border-radius: 50%; color: var(--text-2, #a9b3cc); transition: border-color .4s cubic-bezier(.16,1,.3,1), color .4s cubic-bezier(.16,1,.3,1); } .ds-toggle::before, .ds-toggle::after { content: ''; position: absolute; top: 50%; left: 50%; width: 11px; height: 1.5px; background: currentColor; transform: translate(-50%,-50%); } .ds-toggle::after { transform: translate(-50%,-50%) rotate(90deg); transition: transform .45s cubic-bezier(.16,1,.3,1); } .ds-service[open] .ds-toggle { border-color: var(--blue-text, #7a9dff); color: var(--blue-text, #7a9dff); } .ds-service[open] .ds-toggle::after { transform: translate(-50%,-50%) rotate(0deg); } .ds-service-body { margin: 0; padding-bottom: 32px; color: var(--text-2, #a9b3cc); max-width: 52ch; } .ds-service summary:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Chat Demo Panel",
+      "kind": "card",
+      "refersTo": "chat-demo",
+      "description": "The one contained panel; illustrative conversation, always captioned Exemplo ilustrativo.",
+      "html": "<figure class=\"ds-chat\"><div class=\"ds-chat-log\"><p class=\"ds-msg ds-msg-in\">Vocês abrem no sábado?<time>23:14</time></p><p class=\"ds-msg ds-msg-out\">Abrimos, das 9h às 13h. Quer reservar um horário?<time>23:14</time></p></div><figcaption>Exemplo ilustrativo</figcaption></figure>",
+      "css": ".ds-chat { max-width: 420px; margin: 0; padding: 20px; border: 1px solid var(--line, rgba(150,170,220,.14)); border-radius: 14px; background: var(--panel, #0b1224); color: var(--text, #eef2fa); font-family: var(--font, 'Mona Sans', system-ui, sans-serif); } .ds-chat-log { display: flex; flex-direction: column; gap: 8px; } .ds-msg { display: flex; flex-direction: column; gap: 2px; max-width: 86%; margin: 0; padding: 9px 13px 7px; border-radius: 14px; font-size: .9375rem; line-height: 1.45; } .ds-msg time { align-self: flex-end; color: var(--text-3, #8a95b1); font-size: .6875rem; font-variant-numeric: tabular-nums; } .ds-msg-in { align-self: flex-start; border-bottom-left-radius: 4px; background: #141c33; } .ds-msg-out { align-self: flex-end; border-bottom-right-radius: 4px; background: #1a3796; } .ds-msg-out time { color: #c3d1ff; } .ds-chat figcaption { margin-top: 14px; color: var(--text-3, #8a95b1); font-size: .75rem; }"
+    },
+    {
+      "name": "Fixed Mobile CTA",
+      "kind": "button",
+      "refersTo": "mobile-cta",
+      "description": "Full-width blue WhatsApp pill fixed to the bottom on phones; the only shadowed element.",
+      "html": "<a class=\"ds-mobile-cta\" href=\"#\">Conversar no WhatsApp</a>",
+      "css": ".ds-mobile-cta { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: var(--blue, #2f5bff); color: #fff; font-family: var(--font, 'Mona Sans', system-ui, sans-serif); font-weight: 560; font-stretch: 104%; text-decoration: none; box-shadow: 0 14px 32px -10px rgba(0,0,0,.8); transition: transform .5s cubic-bezier(.16,1,.3,1); } .ds-mobile-cta:active { transform: scale(.98); } .ds-mobile-cta:focus-visible { outline: 2px solid var(--blue-text, #7a9dff); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Studio Index",
+    "overview": "The site reads like the index of a small studio, not a template stack. Work, services, process and commitments are ruled typographic rows at display scale on a near-black navy void; images surface only when you reach a name. The void is literally the background of Juan's studio portrait, so the photograph has no frame: it feathers into the page and the page becomes the studio.\n\nDensity is low and the rhythm is editorial: big expanded Mona Sans for names and headings, normal-width Mona Sans for reading, 1px blue-gray hairlines as the only structure. Electric blue is rationed: the primary WhatsApp action, active states, and one drenched closing field. Everything else is white, bluish gray and the void. The feel is a premium digital studio; it is never hacker, gamer or cyberpunk, and nothing glows.",
+    "keyCharacteristics": [
+      "One dark ground (the portrait's own background), continuous from hero to footer, broken once by the blue closing field.",
+      "Ruled index rows (hairline top border per row, hairline bottom on the list) as the universal content container; no card grids.",
+      "Variable width axis as hierarchy: expanded (104–118%) for display, index names, titles and actions; 100% for text.",
+      "Pill actions, softly radiused imagery, round toggles; flat surfaces separated by tone and hairlines.",
+      "Motion is one orchestrated hero entrance plus quiet reveals and state transitions on a single ease-out curve."
+    ],
+    "rules": [
+      {
+        "name": "The Rationed Blue Rule",
+        "body": "Electric blue fills only the primary action; blue on the void appears only as blue-text on active, open or focused things. If a screen shows blue on something that is neither an action nor a state, remove it.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Field Rule",
+        "body": "A page gets at most one drenched blue field, and it is the closing ask. Its fill is field, not blue, for the contrast of its secondary text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Continuous Void Rule",
+        "body": "The page background is the portrait's background. Never frame, card or border the portrait; mask its edges into the void instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Hierarchy comes from width before size: display, index, titles, brand and buttons use 104–118%; body text stays at 100%. On phones the hero title drops to 100% to hold its line breaks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tracking Floor Rule",
+        "body": "Negative tracking bottoms out at -0.035em (display, headline, index). Titles sit at -0.02 to -0.025em; text is untracked.",
+        "section": "typography"
+      },
+      {
+        "name": "The Content Numbering Rule",
+        "body": "Numbers appear only where order is content: the project index (01–03) and the process (01–04, the client-facing names Conversa, Planejamento, Desenvolvimento, Entrega). No section numbers, no labels above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Row Rule",
+        "body": "Lists are rows, not cards: each row has a 1px line top border, the list has a 1px line bottom border, and rows breathe with clamp padding (about 22–44px).",
+        "section": "layout"
+      },
+      {
+        "name": "The No Glow Rule",
+        "body": "No colored shadows, blurs of blue, gradient text or luminous halos. The only light in the world is the rim light already in the photograph.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do send every primary action to WhatsApp through the shared link builder, with a service-specific message where the context knows the topic.",
+      "Do build lists as ruled rows with a hairline between each row and one closing the list.",
+      "Do use the width axis for hierarchy: 104–118% for names, headings and actions, 100% for reading text.",
+      "Do keep blue fills to actions and blue-text to active, open and focused states.",
+      "Do label concept work as \"Esboço\" quietly in slate, inside the metadata, never as a badge.",
+      "Do caption any simulated data \"Exemplo ilustrativo\".",
+      "Do make every reveal start from visible content without JS and give every motion a reduced-motion fallback."
+    ],
+    "donts": [
+      "Don't add glows, colored shadows, gradient text or blue halos; the only shadow is the one on the floating mobile CTA.",
+      "Don't put labels or kickers above headings, or number sections; numbering is only for the project index and the process.",
+      "Don't use icon-card grids; services, work and promises are rows.",
+      "Don't frame or card the portrait; it dissolves into the void.",
+      "Don't add a second drenched blue section.",
+      "Don't show invented numbers, metrics, testimonials, client names, prices or timelines, including figures copied from the concept sites.",
+      "Don't track tighter than -0.035em or uppercase small labels."
+    ]
+  }
+}

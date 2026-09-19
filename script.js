@@ -2,8 +2,7 @@
    CONFIGURAÇÕES — edite apenas esta área
    ========================================================= */
 const CONFIG = {
-  name: "Juan Pablo",                                   // aparece no header, rodapé e monograma
-  whatsapp: "94999731943",                          // DDI + DDD + número, apenas dígitos
+  whatsapp: "5594999731943",                        // DDI + DDD + número, apenas dígitos
   whatsappMessage: "Olá! Vim pelo seu site e gostaria de conversar sobre um projeto.",
   instagram: "https://www.instagram.com/jpitech.00/",
   github: "https://github.com/juan-p4ablo00",
@@ -11,233 +10,412 @@ const CONFIG = {
   email: "juanpablon277@gmail.com"
 };
 
-/* =========================================================
-   ÍCONES (SVG inline, sem dependências externas)
-   ========================================================= */
-const ICONS = {
-  github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"/></svg>',
-  linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.75 8.98h8.46V23H.75V8.98ZM14.98 8.98h-8.1V23h8.1v-7.36c0-1.94.37-3.82 2.78-3.82 2.37 0 2.4 2.22 2.4 3.95V23H23V14.9c0-5.16-1.1-9.13-7.14-9.13-2.9 0-4.84 1.6-5.64 3.11h-.08V8.98H14.98Z"/></svg>',
-  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>',
-  whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.08L2 22l5.08-1.33A9.96 9.96 0 0 0 12.02 22C17.55 22 22 17.52 22 12S17.55 2 12.02 2Zm5.86 14.3c-.25.7-1.44 1.34-1.99 1.42-.51.08-1.15.11-1.86-.12-.43-.13-.98-.32-1.7-.62-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.47.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.06.92 2.21.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.32.4-.45.53-.15.15-.3.32-.13.62.17.3.77 1.27 1.65 2.06 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.42Z"/></svg>',
-  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4V4Z"/><path d="M4 6l8 7 8-7"/></svg>'
-};
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-function whatsappLink() {
-  return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+function whatsappLink(message = CONFIG.whatsappMessage) {
+  return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
-function initials(name) {
-  return name.trim().split(/\s+/).slice(0, 2).map(w => w[0]?.toUpperCase() || '').join('') || 'JS';
+function emailLink() {
+  const subject = 'Quero conversar sobre um projeto';
+  const body = 'Olá, Juan! Vim pelo seu site e gostaria de conversar sobre um projeto.';
+  return `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 /* =========================================================
    APLICAR CONFIGURAÇÕES NO DOM
+   cada link de WhatsApp pode ter a própria mensagem em data-msg
    ========================================================= */
 function applyConfig() {
-  document.querySelectorAll('[data-config="name"]').forEach(el => el.textContent = CONFIG.name);
-
-  const monogram = document.getElementById('heroMonogram');
-  if (monogram) monogram.textContent = initials(CONFIG.name);
-
-  // links sociais (hero + rodapé)
-  const socials = [
-    { icon: ICONS.github, url: CONFIG.github, label: 'GitHub' },
-    { icon: ICONS.linkedin, url: CONFIG.linkedin, label: 'LinkedIn' },
-    { icon: ICONS.instagram, url: CONFIG.instagram, label: 'Instagram' },
-    { icon: ICONS.whatsapp, url: whatsappLink(), label: 'WhatsApp' }
-  ];
-
-  ['heroSocial', 'footerSocial'].forEach(id => {
-    const list = document.getElementById(id);
-    if (!list) return;
-    list.innerHTML = socials.map(s =>
-      `<li><a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}">${s.icon}</a></li>`
-    ).join('');
+  document.querySelectorAll('[data-whatsapp]').forEach(el => {
+    el.href = whatsappLink(el.dataset.msg);
   });
 
-  // seção de contato
-  const contactEmail = document.getElementById('contactEmail');
-  if (contactEmail) { contactEmail.textContent = CONFIG.email; contactEmail.href = `mailto:${CONFIG.email}`; }
+  document.querySelectorAll('[data-config-link]').forEach(el => {
+    const key = el.dataset.configLink;
+    if (key === 'email') {
+      el.href = `mailto:${CONFIG.email}`;
+      el.textContent = CONFIG.email;
+    } else if (key === 'mailto') {
+      // botão de e-mail: troca só o destino, mantém ícone e rótulo
+      el.href = emailLink();
+    } else if (CONFIG[key]) {
+      el.href = CONFIG[key];
+    }
+  });
 
-  const contactWhatsapp = document.getElementById('contactWhatsapp');
-  if (contactWhatsapp) { contactWhatsapp.href = whatsappLink(); }
-
-  const contactInstagram = document.getElementById('contactInstagram');
-  if (contactInstagram) {
-    contactInstagram.href = CONFIG.instagram;
-    const handle = CONFIG.instagram.replace(/\/$/, '').split('/').pop();
-    contactInstagram.textContent = '@' + handle;
-  }
-
-  const projectsWhatsappBtn = document.getElementById('projectsWhatsappBtn');
-  if (projectsWhatsappBtn) { projectsWhatsappBtn.href = whatsappLink(); }
-
-  const contactMainBtn = document.getElementById('contactMainBtn');
-  if (contactMainBtn) { contactMainBtn.href = whatsappLink(); }
+  const year = document.getElementById('footerYear');
+  if (year) year.textContent = new Date().getFullYear();
 }
 
 /* =========================================================
-   HEADER: fundo ao rolar + link ativo
+   HEADER: vidro ao rolar + movimento sutil do retrato
    ========================================================= */
-function initHeaderScroll() {
+function initHeader() {
   const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 30);
+  const hero = document.querySelector('.hero');
+  const portrait = document.querySelector('.hero-portrait');
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+    if (portrait && hero && !reduceMotion.matches) {
+      const progress = Math.min(Math.max(window.scrollY / (hero.offsetHeight || 1), 0), 1);
+      portrait.style.setProperty('--shift', progress.toFixed(3));
+    }
   };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+
+  update();
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
 }
 
+/* =========================================================
+   LINK ATIVO NO MENU
+   ========================================================= */
 function initActiveNav() {
-  const links = document.querySelectorAll('.nav-link');
-  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+  const links = [...document.querySelectorAll('.nav-link')];
+  const byId = new Map(links.map(link => [link.getAttribute('href').slice(1), link]));
+  // observa todas as seções: nas que não estão no menu (Como trabalho), nenhum item fica marcado
+  const sections = [...document.querySelectorAll('main > section[id]')];
+
+  const setActive = (id) => {
+    links.forEach(link => {
+      if (link === byId.get(id)) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = '#' + entry.target.id;
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
-      }
+      if (entry.isIntersecting) setActive(entry.target.id);
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
-  sections.forEach(s => s && observer.observe(s));
+  sections.forEach(section => observer.observe(section));
 }
 
 /* =========================================================
-   MENU MOBILE
+   MENU MOBILE (tela cheia)
    ========================================================= */
-function initMobileNav() {
+function initMenu() {
   const toggle = document.getElementById('navToggle');
   const nav = document.getElementById('mainNav');
-  const closeMenu = () => {
-    nav.classList.remove('open');
-    toggle.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
+  const outside = [
+    document.querySelector('main'),
+    document.querySelector('.site-footer'),
+    document.getElementById('mobileCta')
+  ].filter(Boolean);
 
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.classList.toggle('open', open);
+  const setMenu = (open) => {
+    nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    document.body.classList.toggle('menu-open', open);
+    // o <html> é quem rola a página (overflow-x:clip no root), então a trava vai nele
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    // com o menu aberto, o resto da página sai do Tab e do leitor de tela
+    outside.forEach(el => { el.inert = open; });
+  };
+  const closeMenu = () => setMenu(false);
 
-  nav.querySelectorAll('.nav-link').forEach(link => {
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+
+  nav.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
+  // clicar fora do painel (no fundo escurecido ou em qualquer outro ponto) fecha o menu
   document.addEventListener('click', (event) => {
-    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+    if (nav.classList.contains('is-open') && !nav.contains(event.target) && !toggle.contains(event.target)) {
       closeMenu();
     }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+
+  // se a tela crescer com o menu aberto (girar o celular, redimensionar), fecha e destrava a rolagem
+  window.matchMedia('(min-width: 960px)').addEventListener('change', (event) => {
+    if (event.matches) closeMenu();
   });
 }
 
 /* =========================================================
-   REVEAL AO ROLAR
+   REVELAÇÃO AO ROLAR
    ========================================================= */
 function initReveal() {
   const items = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window) || reduceMotion.matches) {
+    items.forEach(el => el.classList.add('is-in'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+        entry.target.classList.add('is-in');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
   items.forEach(el => observer.observe(el));
 }
 
 /* =========================================================
-   SLIDER DE FEEDBACKS
+   PROJETOS: prévia que segue o cursor (mouse) ou o foco (teclado)
    ========================================================= */
-function initTestimonials() {
-  const track = document.getElementById('testimonialTrack');
-  const dotsWrap = document.getElementById('testimonialDots');
-  const prevBtn = document.getElementById('testimonialPrev');
-  const nextBtn = document.getElementById('testimonialNext');
-  if (!track) return;
+function initWorkPreview() {
+  const preview = document.getElementById('workPreview');
+  const index = document.getElementById('workIndex');
+  if (!preview || !index) return;
 
-  const slides = Array.from(track.children);
-  let index = 0;
+  const img = preview.querySelector('img');
+  const triggers = [...index.querySelectorAll('.work-trigger')];
+  let x = 0, y = 0, targetX = 0, targetY = 0;
+  let frame = null;
+  let visible = false;
 
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.setAttribute('aria-label', `Ir para depoimento ${i + 1}`);
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(dot);
-  });
-  const dots = Array.from(dotsWrap.children);
-
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, di) => d.classList.toggle('active', di === index));
+  if (finePointer.matches) {
+    triggers.forEach(trigger => { new Image().src = trigger.dataset.preview; });
   }
 
-  prevBtn.addEventListener('click', () => goTo(index - 1));
-  nextBtn.addEventListener('click', () => goTo(index + 1));
+  const loop = () => {
+    const ease = reduceMotion.matches ? 1 : 0.16;
+    x += (targetX - x) * ease;
+    y += (targetY - y) * ease;
+    preview.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    const moving = Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4;
+    frame = visible || moving ? requestAnimationFrame(loop) : null;
+  };
 
-  let autoplay = setInterval(() => goTo(index + 1), 6000);
-  track.closest('.testimonial-slider').addEventListener('mouseenter', () => clearInterval(autoplay));
-  track.closest('.testimonial-slider').addEventListener('mouseleave', () => {
-    autoplay = setInterval(() => goTo(index + 1), 6000);
+  const place = (clientX, clientY, jump) => {
+    const w = preview.offsetWidth;
+    const h = preview.offsetHeight;
+    // à direita e um pouco acima do cursor, sem sair da tela
+    targetX = Math.min(Math.max(clientX + 32, 16), window.innerWidth - w - 16);
+    targetY = Math.min(Math.max(clientY - h * 0.55, 16), window.innerHeight - h - 16);
+    if (jump) { x = targetX; y = targetY; }
+    if (!frame) frame = requestAnimationFrame(loop);
+  };
+
+  const show = (trigger) => {
+    if (img.getAttribute('src') !== trigger.dataset.preview) img.src = trigger.dataset.preview;
+    preview.classList.add('is-visible');
+    visible = true;
+  };
+
+  const hide = () => {
+    preview.classList.remove('is-visible');
+    visible = false;
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('pointerenter', (event) => {
+      if (!finePointer.matches || event.pointerType !== 'mouse') return;
+      place(event.clientX, event.clientY, !visible);
+      show(trigger);
+    });
+    trigger.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'mouse' && visible) place(event.clientX, event.clientY);
+    });
+    trigger.addEventListener('focus', () => {
+      if (!finePointer.matches || !trigger.matches(':focus-visible')) return;
+      const rect = trigger.getBoundingClientRect();
+      place(rect.left + rect.width * 0.5, rect.top + rect.height * 0.5, true);
+      show(trigger);
+    });
+    trigger.addEventListener('blur', hide);
   });
+
+  index.addEventListener('pointerleave', hide);
+  window.addEventListener('scroll', () => {
+    if (visible && !index.matches(':hover') && !index.contains(document.activeElement)) hide();
+  }, { passive: true });
 }
 
 /* =========================================================
-   LIGHTBOX DA SEÇÃO "VEJA NA PRÁTICA"
+   CASES: folha lateral com problema, direção, solução e resultado
+   sem suporte a <dialog>, o link abre o esboço no ar
    ========================================================= */
-function initLightbox() {
-  const lightbox = document.getElementById('lightbox');
-  const frame = document.getElementById('lightboxFrame');
-  const closeBtn = document.getElementById('lightboxClose');
-  const items = document.querySelectorAll('[data-lightbox-index]');
+function initCases() {
+  const dialog = document.getElementById('caseDialog');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
 
-  const labels = ['Amostra 01', 'Amostra 02', 'Amostra 03', 'Amostra 04'];
+  const bodies = [...dialog.querySelectorAll('.case-body')];
+  const closeBtn = document.getElementById('caseClose');
+  let lastTrigger = null;
 
-  function open(i) {
-    frame.textContent = labels[i] || 'Amostra';
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
+  const open = (id, trigger) => {
+    bodies.forEach(body => {
+      const match = body.dataset.case === id;
+      const title = body.querySelector('.case-title');
+      body.hidden = !match;
+      if (match) {
+        title.id = 'caseTitle';
+      } else if (title.id === 'caseTitle') {
+        title.removeAttribute('id');
+      }
+    });
 
-  items.forEach(item => {
-    item.addEventListener('click', () => open(Number(item.dataset.lightboxIndex)));
+    lastTrigger = trigger;
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    document.body.classList.add('case-open');
+    document.documentElement.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+
+  // a limpeza não depende do evento "close" do <dialog>, que alguns navegadores
+  // só disparam quando a página está sendo desenhada
+  const cleanup = () => {
+    if (!document.body.classList.contains('case-open')) return;
+    document.body.classList.remove('case-open');
+    document.documentElement.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus({ preventScroll: true });
+    lastTrigger = null;
+  };
+
+  const finish = () => {
+    dialog.classList.remove('is-closing');
+    if (dialog.open) dialog.close();
+    cleanup();
+  };
+
+  const close = () => {
+    if (!dialog.open || dialog.classList.contains('is-closing')) return;
+    if (reduceMotion.matches) {
+      finish();
+      return;
+    }
+    dialog.classList.add('is-closing');
+    dialog.addEventListener('animationend', finish, { once: true });
+    setTimeout(finish, 450);
+  };
+
+  dialog.addEventListener('close', cleanup);
+
+  // Esc fecha com a mesma animação do botão
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+    }
   });
+  dialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    close();
+  });
+
   closeBtn.addEventListener('click', close);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  // clique fora da folha (no fundo escurecido) fecha
+  dialog.addEventListener('click', (event) => {
+    const rect = dialog.getBoundingClientRect();
+    const inside = event.clientX >= rect.left && event.clientX <= rect.right &&
+      event.clientY >= rect.top && event.clientY <= rect.bottom;
+    if (!inside) close();
+  });
+
+  document.querySelectorAll('.work-trigger[data-case]').forEach(trigger => {
+    trigger.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+      event.preventDefault();
+      open(trigger.dataset.case, trigger);
+    });
+  });
 }
 
 /* =========================================================
-   ANO NO RODAPÉ
+   COMO TRABALHO: o trilho acompanha a rolagem
    ========================================================= */
-function initFooterYear() {
-  const el = document.getElementById('footerYear');
-  if (el) el.textContent = new Date().getFullYear();
+function initSteps() {
+  const steps = document.getElementById('steps');
+  if (!steps) return;
+  const items = [...steps.querySelectorAll('.step')];
+
+  const paint = (progress) => {
+    steps.style.setProperty('--progress', progress.toFixed(3));
+    items.forEach((item, i) => item.classList.toggle('is-active', progress > i / items.length));
+  };
+
+  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+    paint(1);
+    return;
+  }
+
+  let ticking = false;
+  let inView = false;
+
+  const update = () => {
+    ticking = false;
+    const rect = steps.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const start = vh * 0.85;   // começa quando o topo da lista chega a 85% da tela
+    const end = vh * 0.4;      // completa quando o fim da lista passa de 40%
+    const progress = (start - rect.top) / (rect.height + start - end);
+    paint(Math.min(Math.max(progress, 0), 1));
+  };
+
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    if (inView) update();
+  }, { rootMargin: '10% 0px 10% 0px' }).observe(steps);
+
+  window.addEventListener('scroll', () => {
+    if (inView && !ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
+
+  update();
+}
+
+/* =========================================================
+   CTA FIXO NO CELULAR
+   aparece quando os botões do topo saem da tela e some na seção de contato
+   ========================================================= */
+function initMobileCta() {
+  const cta = document.getElementById('mobileCta');
+  const heroActions = document.querySelector('.hero-actions');
+  const contact = document.getElementById('contato');
+  if (!cta || !heroActions || !contact) return;
+
+  const state = { hero: true, contact: false };
+  const update = () => cta.classList.toggle('is-visible', !state.hero && !state.contact);
+
+  new IntersectionObserver(([entry]) => {
+    state.hero = entry.isIntersecting;
+    update();
+  }).observe(heroActions);
+
+  new IntersectionObserver(([entry]) => {
+    state.contact = entry.isIntersecting;
+    update();
+  }, { rootMargin: '0px 0px -25% 0px' }).observe(contact);
 }
 
 /* =========================================================
    INIT
    ========================================================= */
-document.addEventListener('DOMContentLoaded', () => {
-  applyConfig();
-  initHeaderScroll();
-  initActiveNav();
-  initMobileNav();
-  initReveal();
-  initTestimonials();
-  initLightbox();
-  initFooterYear();
-});
+applyConfig();
+initHeader();
+initActiveNav();
+initMenu();
+initReveal();
+initWorkPreview();
+initCases();
+initSteps();
+initMobileCta();
