@@ -54,17 +54,11 @@ function applyConfig() {
    ========================================================= */
 function initHeader() {
   const header = document.getElementById('siteHeader');
-  const hero = document.querySelector('.hero');
-  const portrait = document.querySelector('.hero-portrait');
   let ticking = false;
 
   const update = () => {
     ticking = false;
     header.classList.toggle('is-scrolled', window.scrollY > 24);
-    if (portrait && hero && !reduceMotion.matches) {
-      const progress = Math.min(Math.max(window.scrollY / (hero.offsetHeight || 1), 0), 1);
-      portrait.style.setProperty('--shift', progress.toFixed(3));
-    }
   };
 
   update();
@@ -442,6 +436,48 @@ function initSteps() {
 }
 
 /* =========================================================
+   PROJETOS: a palavra surge com a rolagem e as telas correm dentro das letras
+   ========================================================= */
+function initWorkStage() {
+  const stage = document.getElementById('workStage');
+  if (!stage) return;
+
+  const paint = (progress) => {
+    stage.style.setProperty('--t', progress.toFixed(3));
+    stage.style.setProperty('--enter', Math.min(progress / 0.18, 1).toFixed(3));
+  };
+
+  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+    paint(0.5);
+    return;
+  }
+
+  let ticking = false;
+  let inView = false;
+
+  const update = () => {
+    ticking = false;
+    const rect = stage.getBoundingClientRect();
+    const travel = rect.height - window.innerHeight;
+    paint(Math.min(Math.max(-rect.top / (travel || 1), 0), 1));
+  };
+
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    if (inView) update();
+  }, { rootMargin: '20% 0px 20% 0px' }).observe(stage);
+
+  window.addEventListener('scroll', () => {
+    if (inView && !ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
+
+  update();
+}
+
+/* =========================================================
    CTA FIXO NO CELULAR
    aparece quando os botões do topo saem da tela e some na seção de contato
    ========================================================= */
@@ -477,4 +513,5 @@ initWorkPreview();
 initCases();
 initEmailForm();
 initSteps();
+initWorkStage();
 initMobileCta();

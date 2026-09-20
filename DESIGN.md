@@ -84,6 +84,7 @@ typography:
 rounded:
   img: "6px"
   panel: "14px"
+  photo: "28px"
   pill: "999px"
   round: "50%"
 spacing:
@@ -232,9 +233,9 @@ A 12-column grid (column gap col-gap) inside a shell of max 1360px plus gutter p
 
 Vertical rhythm comes from one token: sections open with a full section of space and close with half. A section that follows a ruled list (Soluções after Projetos, Sobre after Soluções) opens with only half and drops its own top rule, because the list's bottom hairline already closes the previous block. The process section closes with a full section before the blue field.
 
-The hero is a full-viewport bottom-aligned grid: copy in 7 columns on the left, the portrait bleeding off the right edge (up to 52vw / 960px), starting just below the header and ending short of the fold so the face sits at a comfortable distance, its top, left and bottom edges faded into the void; the caption sits in columns 9–12. Under the actions, a row of four 44px circular icon links (GitHub, LinkedIn, Instagram, WhatsApp). From 960–1199px the caption moves under the actions; below 960px the portrait becomes a stacked image of min(56svh, 480px) and the copy overlaps its faded bottom.
+The hero is a full-viewport centred grid: copy in columns 1–6, the framed portrait in columns 8–12, the caption under the copy. Under the actions sits a row of four 44px circular icon links (GitHub, LinkedIn, Instagram, WhatsApp). Below 960px the grid becomes one column and the portrait comes first, capped at 280px and square.
 
-Breakpoints: 479px (full-width hero buttons), 640px (case facts in 3 columns, gallery 3:1), 960px (desktop grids, header nav; below it the dropdown menu panel and fixed CTA), 960–1199px (hero caption relocation), 1400px with a fine pointer (resting thumbnails in the project index), hover/fine-pointer queries for the cursor preview, and max-height 520px below 960px for landscape phones.
+The Projetos section opens with a scroll stage: a 200vh block (150vh below 960px) whose sticky viewport holds the word. Breakpoints: 479px (full-width hero buttons), 640px (case facts in 3 columns, gallery 3:1), 960px (desktop grids, header nav; below it the dropdown menu panel and fixed CTA), 960–1199px (hero caption relocation), 1400px with a fine pointer (resting thumbnails in the project index), hover/fine-pointer queries for the cursor preview, and max-height 520px below 960px for landscape phones.
 
 **The Ruled Row Rule.** Lists are rows, not cards: each row has a 1px line top border, the list has a 1px line bottom border, and rows breathe with clamp padding (about 22–44px).
 
@@ -246,11 +247,11 @@ Flat. Depth comes from tone (void, then ink, then panel), hairlines, the portrai
 - **Floating CTA** (`box-shadow: 0 14px 32px -10px rgba(0, 0, 0, .8)`): on the fixed mobile WhatsApp pill, to separate it from content scrolling underneath. Black, not blue.
 
 ### Named Rules
-**The No Glow Rule.** No colored shadows, blurs of blue, gradient text or luminous halos. The only light in the world is the rim light already in the photograph.
+**The No Glow Rule.** No colored shadows, blurs of blue, gradient text or luminous halos anywhere in the page's own chrome. **One documented exception, by the owner's explicit request (2026-09-20):** the hero portrait keeps its legacy treatment from the previous site — a navy drop shadow, a blue inner glow, a glowing availability dot and a blinking cursor in the badge. It is a single framed object, not a licence to reintroduce glow elsewhere.
 
 ## Shapes
 
-Three shapes: the pill (999px) for every action and the fixed CTA; the circle (50%) for accordion toggles, the case close button, the step nodes and the status dot; soft 6px corners for project imagery (thumbnails, the cursor preview, case covers and galleries). The one contained surface, the chat demo, uses 14px. Everything else is square and structured by 1px hairlines. The hero is crossed by a single 1px electric "/" (the stroke of the `</>` mark) with a vertical fade, and the closing field carries a large `</>` outline at 13% white behind the headline, bleeding off the bottom-left corner and clear of the buttons.
+Three shapes: the pill (999px) for every action and the fixed CTA; the circle (50%) for accordion toggles, the case close button, the step nodes and the status dot; soft 6px corners for project imagery (thumbnails, the cursor preview, case covers and galleries). The hero portrait card is the one 28px surface, with a 32px ring around it. The one contained surface, the chat demo, uses 14px. Everything else is square and structured by 1px hairlines. The hero is crossed by a single 1px electric "/" (the stroke of the `</>` mark) with a vertical fade, and the closing field carries a large `</>` outline at 13% white behind the headline, bleeding off the bottom-left corner and clear of the buttons.
 
 ## Components
 
@@ -267,6 +268,12 @@ Confident pills, expanded labels, no shadows.
 
 ### Navigation
 The brand is the `</>` mark in blue-text plus "Juan Pablo" at 110% width. Desktop links are text-2, 0.9375rem; hover and current section go to text, and the current section gains a 4px blue-text dot. On scroll the glass layer fades in. Below 960px the nav becomes a dropdown panel under the header, not a full-screen takeover: up to 380px wide, right-aligned to the gutter, ink fill, strong-hairline border, 14px corners, links at 1.5rem (112% width) separated by hairlines, the current one in blue-text, with a full-width WhatsApp pill and a note at the foot. A 55% scrim dims the page behind it. While it is open the rest of the page is inert and scroll is locked; tapping anywhere outside the panel, a link, or Escape closes it.
+
+### Hero Portrait (legacy frame)
+The portrait sits in a 3/4 card (28px corners, hairline border, navy drop shadow `0 30px 60px -20px rgba(0,10,40,.7)` plus an inner blue glow), ringed by a 32px hairline frame inset -26px that rotates once every 26 seconds and carries a short blue gradient tick on its top edge. Two thin blue gradient lines cross the top-left and the right side. A glass pill hangs off the bottom edge with a glowing green dot, the lowercase line "disponível para novos projetos" and a blinking cursor. Square, capped at 280px, above the copy below 960px. This is the one place the No Glow Rule is suspended.
+
+### Projects Opening (signature)
+The Projetos section opens with a 200vh stage (150vh below 960px) whose sticky inner viewport centres the word "Projetos" at 17.5vw (22vw, capped at 7rem, below 960px) in 125% width. Scroll drives two custom properties on the stage: `--enter` (0→1 over the first 18%) wipes the word in from the left with a clip-path inset, and `--t` (0→1 over the whole stage) both scales it from 0.88 to 1.04 and pans a horizontal strip of the three project screenshots through the letters via `background-clip: text`. A 1px blue-gray text stroke keeps the letterforms legible over the darker frames. Without JS or with reduced motion the word rests at mid-progress, fully visible. The index rows follow under a ruled lead paragraph.
 
 ### Project Index (signature)
 Each project is a full-width row: number, name at index scale, meta line ending in a quiet slate "· Esboço", and an arrow. With a mouse, hovering dims the other names to text-3, shifts the hovered name 14px right, turns the arrow blue-text, and a 16:10 preview (6px corners) follows the cursor, opening from an inset clip. At 1400px and up a desaturated 128px thumbnail rests in each row and comes to full color on hover or focus. On touch the thumbnail sits above the row. Every row opens the case sheet.
@@ -287,7 +294,7 @@ Four steps on a 1px rail (vertical on phones, horizontal at 960px) whose blue-te
 Below 960px a full-width blue WhatsApp pill slides up once the hero leaves view and hides while the menu or case sheet is open.
 
 ### Motion
-One easing for arrivals, `cubic-bezier(.16, 1, .3, 1)`, and `cubic-bezier(.65, 0, .35, 1)` for exits and wipes. The hero is the only orchestrated moment: title lines rise out of masks in sequence, the subline, actions and caption fade up, the portrait resolves from dark, the slash wipes down. Elsewhere content reveals 20px up on scroll with a 90ms stagger; the no-JS default is fully visible. The portrait drifts slightly with scroll. Under prefers-reduced-motion every animation and transition collapses to instant and scroll-linked effects stop.
+One easing for arrivals, `cubic-bezier(.16, 1, .3, 1)`, and `cubic-bezier(.65, 0, .35, 1)` for exits and wipes. The hero is the only orchestrated moment: title lines rise out of masks in sequence, the subline, actions and caption fade up, the portrait resolves from dark, the slash wipes down. Elsewhere content reveals 20px up on scroll with a 90ms stagger; the no-JS default is fully visible. Two scroll-linked moments carry the page: the Projetos word stage and the process rail. Under prefers-reduced-motion every animation and transition collapses to instant and scroll-linked effects stop.
 
 ## Do's and Don'ts
 

@@ -111,24 +111,6 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <figure class="hero-portrait">
-        <img src="assets/img/juan-pablo-retrato.webp"
-          srcset="assets/img/juan-pablo-retrato-720.webp 720w, assets/img/juan-pablo-retrato.webp 1254w"
-          sizes="(max-width: 959px) 100vw, 52vw" width="1254" height="1254"
-          alt="Juan Pablo, retrato em estúdio com luz azul" fetchpriority="high" decoding="async">
-      </figure>
-      <svg class="hero-slash" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="slashFade" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#2f5bff" stop-opacity="0" />
-            <stop offset=".28" stop-color="#4870ff" stop-opacity=".9" />
-            <stop offset=".7" stop-color="#2f5bff" stop-opacity=".55" />
-            <stop offset="1" stop-color="#2f5bff" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <line x1="63.5" y1="9" x2="53" y2="102" />
-      </svg>
-
       <div class="shell hero-inner">
         <div class="hero-copy">
           <h1 class="hero-title" id="hero-title">
@@ -158,23 +140,42 @@
           </ul>
         </div>
 
+        <figure class="hero-visual">
+          <div class="visual-frame">
+            <span class="visual-ring" aria-hidden="true"></span>
+            <div class="visual-photo">
+              <img src="assets/img/juan-pablo-retrato.webp"
+                srcset="assets/img/juan-pablo-retrato-720.webp 720w, assets/img/juan-pablo-retrato.webp 1254w"
+                sizes="(max-width: 959px) 280px, 380px" width="1254" height="1254"
+                alt="Juan Pablo, retrato em estúdio com luz azul" fetchpriority="high" decoding="async">
+            </div>
+            <span class="visual-line visual-line--h" aria-hidden="true"></span>
+            <span class="visual-line visual-line--v" aria-hidden="true"></span>
+            <figcaption class="visual-badge">
+              <span class="status-dot" aria-hidden="true"></span>disponível para novos projetos<span class="cursor"
+                aria-hidden="true">_</span>
+            </figcaption>
+          </div>
+        </figure>
+
         <p class="hero-caption">
           <span class="caption-name">Juan Pablo, desenvolvedor web</span>
           <span class="caption-place">Goianésia do Pará, PA · online para todo o Brasil</span>
-          <span class="caption-status"><span class="status-dot" aria-hidden="true"></span>Disponível para novos
-            projetos</span>
         </p>
       </div>
     </section>
 
     <!-- ============ PROJETOS ============ -->
     <section class="section work" id="projetos" aria-labelledby="work-title">
+      <div class="work-stage" id="workStage">
+        <div class="work-stage-inner">
+          <h2 class="work-word" id="work-title">Projetos</h2>
+        </div>
+      </div>
+
       <div class="shell">
-        <header class="section-head" data-reveal>
-          <h2 class="section-title" id="work-title">Projetos</h2>
-          <p class="section-lead">Esboços de interface para três negócios que vivem de confiança: uma imobiliária, uma
-            clínica de estética e um escritório de advocacia.</p>
-        </header>
+        <p class="section-lead work-lead" data-reveal>Esboços de interface para três negócios que vivem de confiança:
+          uma imobiliária, uma clínica de estética e um escritório de advocacia.</p>
 
         <ol class="work-index" id="workIndex">
           <li class="work-row" data-reveal>
