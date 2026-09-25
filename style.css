@@ -2368,12 +2368,32 @@ html:not(.js) .step::before {
   .hero-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 56px;
+    /* o respiro maior volta como margem do bloco de texto: assim a legenda
+       fica colada na foto, e não à mesma distância de tudo */
+    gap: 24px;
   }
 
   .hero-copy,
   .hero-caption {
     grid-column: 1 / -1;
+  }
+
+  /* no celular o topo é uma coluna só, do retrato ao botão: tudo centrado */
+  .hero-copy {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .hero-sub {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .social-row {
+    justify-content: center;
   }
 
   .hero-visual {
@@ -2390,8 +2410,15 @@ html:not(.js) .step::before {
     aspect-ratio: 1 / 1;
   }
 
+  /* a legenda pertence ao retrato: no celular sobe para logo abaixo dele,
+     centralizada, em vez de terminar sozinha no fim do topo */
   .hero-caption {
+    order: -1;
+    width: min(100%, 340px);
     margin-top: 0;
+    margin-inline: auto;
+    justify-items: center;
+    text-align: center;
   }
 
   .hero-title {
@@ -2447,6 +2474,14 @@ html:not(.js) .step::before {
 }
 
 /* telas pequenas: título do topo e botões ocupam a largura */
+/* telas bem estreitas: a 42px a linha "do negócio que" nao cabe e quebra
+   sozinha, deixando palavras orfas no meio do título centralizado */
+@media (max-width: 359px) {
+  .hero-title {
+    font-size: 2.125rem;
+  }
+}
+
 @media (max-width: 479px) {
   .hero-actions .btn,
   .closing-buttons .btn {
