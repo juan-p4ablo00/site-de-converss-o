@@ -168,75 +168,182 @@ function initReveal() {
 }
 
 /* =========================================================
-   PROJETOS: prévia que segue o cursor (mouse) ou o foco (teclado)
+   PROJETOS · vitrine com estado
+   Um palco fixo mostra a prova visual do projeto ativo enquanto o
+   índice rola ao lado. Quem manda é sempre o índice: a lista vem do
+   HTML, então basta acrescentar um <li> para o projeto entrar na
+   experiência — contador, cortina e navegação se ajustam sozinhos.
+
+   Fontes de troca: rolagem, mouse e teclado. Nenhuma delas é a única.
    ========================================================= */
-function initWorkPreview() {
-  const preview = document.getElementById('workPreview');
+function initShowcase() {
+  const showcase = document.getElementById('showcase');
   const index = document.getElementById('workIndex');
-  if (!preview || !index) return;
+  if (!showcase || !index) return;
 
-  const img = preview.querySelector('img');
-  const triggers = [...index.querySelectorAll('.work-trigger')];
-  let x = 0, y = 0, targetX = 0, targetY = 0;
-  let frame = null;
-  let visible = false;
+  const rows = [...index.querySelectorAll('.work-row')];
+  const triggers = rows.map(row => row.querySelector('.work-trigger'));
+  if (!rows.length || triggers.some(t => !t)) return;
 
-  if (finePointer.matches) {
-    triggers.forEach(trigger => { new Image().src = trigger.dataset.preview; });
-  }
+  const stage = showcase.querySelector('.showcase-stage');
+  const foot = showcase.querySelector('.showcase-foot');
+  const layers = [...showcase.querySelectorAll('.showcase-layer')];
+  const elNow = showcase.querySelector('.showcase-now');
+  const elAll = showcase.querySelector('.showcase-all');
+  const elDesc = showcase.querySelector('.showcase-desc');
 
-  const loop = () => {
-    const ease = reduceMotion.matches ? 1 : 0.16;
-    x += (targetX - x) * ease;
-    y += (targetY - y) * ease;
-    preview.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
-    const moving = Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4;
-    frame = visible || moving ? requestAnimationFrame(loop) : null;
+  const pad = (n) => String(n).padStart(2, '0');
+  const srcOf = (i) => triggers[i].dataset.stage || '';
+  const descOf = (i) => {
+    const node = rows[i].querySelector('.work-desc');
+    return node ? node.textContent.trim() : '';
   };
+  // o palco só existe em tela larga; no celular a prova está na própria linha
+  const palcoNoAr = () => !!stage && stage.offsetParent !== null && layers.length === 2;
 
-  const place = (clientX, clientY, jump) => {
-    const w = preview.offsetWidth;
-    const h = preview.offsetHeight;
-    // à direita e um pouco acima do cursor, sem sair da tela
-    targetX = Math.min(Math.max(clientX + 32, 16), window.innerWidth - w - 16);
-    targetY = Math.min(Math.max(clientY - h * 0.55, 16), window.innerHeight - h - 16);
-    if (jump) { x = targetX; y = targetY; }
-    if (!frame) frame = requestAnimationFrame(loop);
-  };
+  showcase.classList.add('is-live');
+  if (elAll) elAll.textContent = pad(rows.length);
 
-  const show = (trigger) => {
-    if (img.getAttribute('src') !== trigger.dataset.preview) img.src = trigger.dataset.preview;
-    preview.classList.add('is-visible');
-    visible = true;
-  };
+  let atual = -1;
+  let vez = 0;
+  let pintado = false;
 
-  const hide = () => {
-    preview.classList.remove('is-visible');
-    visible = false;
-  };
+  const frente = () => layers.find(l => l.classList.contains('is-front')) || layers[0];
+  const fundo = () => layers.find(l => l !== frente());
+  const limpar = (l) => l.classList.remove('is-in-next', 'is-in-prev', 'is-out-next', 'is-out-prev');
 
-  triggers.forEach(trigger => {
-    trigger.addEventListener('pointerenter', (event) => {
-      if (!finePointer.matches || event.pointerType !== 'mouse') return;
-      place(event.clientX, event.clientY, !visible);
-      show(trigger);
-    });
-    trigger.addEventListener('pointermove', (event) => {
-      if (event.pointerType === 'mouse' && visible) place(event.clientX, event.clientY);
-    });
-    trigger.addEventListener('focus', () => {
-      if (!finePointer.matches || !trigger.matches(':focus-visible')) return;
-      const rect = trigger.getBoundingClientRect();
-      place(rect.left + rect.width * 0.5, rect.top + rect.height * 0.5, true);
-      show(trigger);
-    });
-    trigger.addEventListener('blur', hide);
+  layers.forEach(l => l.addEventListener('animationend', () => limpar(l)));
+
+  const vizinhas = (i) => [i - 1, i + 1].forEach(k => {
+    if (k >= 0 && k < rows.length && srcOf(k)) new Image().src = srcOf(k);
   });
 
-  index.addEventListener('pointerleave', hide);
-  window.addEventListener('scroll', () => {
-    if (visible && !index.matches(':hover') && !index.contains(document.activeElement)) hide();
-  }, { passive: true });
+  const escrever = (i) => {
+    if (elNow) elNow.textContent = pad(i + 1);
+    if (elDesc) elDesc.textContent = descOf(i);
+  };
+
+  async function trocarImagem(i, sentido, animar) {
+    const src = srcOf(i);
+    if (!src || !palcoNoAr()) return;
+
+    const minhaVez = ++vez;
+    const entra = animar ? fundo() : frente();
+
+    if (entra.getAttribute('src') !== src) {
+      entra.src = src;
+      // sem decodificar antes, a cortina abre sobre um quadro em branco
+      try { await entra.decode(); } catch (erro) { return; }
+    }
+    if (minhaVez !== vez) return;
+
+    if (!animar) {
+      limpar(entra);
+      pintado = true;
+      return;
+    }
+
+    const sai = frente();
+    limpar(entra);
+    limpar(sai);
+    entra.classList.add('is-front');
+    sai.classList.remove('is-front');
+    void entra.offsetWidth;                       // reinicia a animação
+    entra.classList.add('is-in-' + sentido);
+    sai.classList.add('is-out-' + sentido);
+    pintado = true;
+  }
+
+  function mostrar(i, animar) {
+    if (i < 0 || i >= rows.length || i === atual) return;
+    const sentido = i > atual ? 'next' : 'prev';
+    const primeiro = atual === -1;
+    atual = i;
+
+    rows.forEach((row, k) => {
+      row.classList.toggle('is-active', k === i);
+      if (k === i) triggers[k].setAttribute('aria-current', 'true');
+      else triggers[k].removeAttribute('aria-current');
+    });
+
+    if (!animar || primeiro || reduceMotion.matches) {
+      escrever(i);
+    } else if (foot) {
+      const minhaVez = vez + 1;
+      foot.classList.add('is-changing');
+      setTimeout(() => {
+        if (vez > minhaVez) return;               // outra troca assumiu
+        escrever(i);
+        foot.classList.remove('is-changing');
+      }, 300);
+    } else {
+      escrever(i);
+    }
+
+    trocarImagem(i, sentido, animar && !primeiro);
+    vizinhas(i);
+  }
+
+  /* --- rolagem: ativa a linha mais próxima da altura de leitura ---
+     Medir o retângulo direto é mais confiável que observar interseção:
+     funciona mesmo quando o navegador atrasa a entrega dos observadores. */
+  let agendado = false;
+
+  const perto = () => {
+    const r = showcase.getBoundingClientRect();
+    return r.bottom > -window.innerHeight * 0.3 && r.top < window.innerHeight * 1.3;
+  };
+
+  const porRolagem = () => {
+    agendado = false;
+    if (!perto()) return;
+
+    // primeira chegada: pinta sem cortina, e só agora baixa a imagem grande
+    const primeiraVez = atual === -1;
+    if (!primeiraVez) {
+      if (index.matches(':hover')) return;                 // o mouse tem prioridade
+      if (index.contains(document.activeElement)) return;  // o teclado também
+    }
+
+    const linha = window.innerHeight * 0.45;
+    let melhor = primeiraVez ? 0 : atual;
+    let menor = Infinity;
+    rows.forEach((row, k) => {
+      const r = row.getBoundingClientRect();
+      const d = Math.abs(r.top + r.height / 2 - linha);
+      if (d < menor) { menor = d; melhor = k; }
+    });
+    mostrar(melhor, !primeiraVez);
+  };
+
+  const agendar = () => {
+    if (!agendado) {
+      agendado = true;
+      requestAnimationFrame(porRolagem);
+    }
+  };
+
+  window.addEventListener('scroll', agendar, { passive: true });
+
+  /* --- mouse e teclado --- */
+  triggers.forEach((trigger, k) => {
+    trigger.addEventListener('pointerenter', (evento) => {
+      if (evento.pointerType === 'mouse' && finePointer.matches) mostrar(k, true);
+    });
+    trigger.addEventListener('focus', () => mostrar(k, true));
+  });
+
+  /* --- ao passar para tela larga, o palco pode estar vazio --- */
+  const larga = window.matchMedia('(min-width: 960px)');
+  const conferir = () => {
+    if (atual === -1) return;
+    if (palcoNoAr() && !pintado) trocarImagem(atual, 'next', false);
+  };
+  if (typeof larga.addEventListener === 'function') larga.addEventListener('change', conferir);
+
+  window.addEventListener('resize', () => { conferir(); agendar(); }, { passive: true });
+
+  porRolagem();
 }
 
 /* =========================================================
@@ -436,48 +543,6 @@ function initSteps() {
 }
 
 /* =========================================================
-   PROJETOS: a palavra surge com a rolagem e as telas correm dentro das letras
-   ========================================================= */
-function initWorkStage() {
-  const stage = document.getElementById('workStage');
-  if (!stage) return;
-
-  const paint = (progress) => {
-    stage.style.setProperty('--t', progress.toFixed(3));
-    stage.style.setProperty('--enter', Math.min(progress / 0.18, 1).toFixed(3));
-  };
-
-  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
-    paint(0.5);
-    return;
-  }
-
-  let ticking = false;
-  let inView = false;
-
-  const update = () => {
-    ticking = false;
-    const rect = stage.getBoundingClientRect();
-    const travel = rect.height - window.innerHeight;
-    paint(Math.min(Math.max(-rect.top / (travel || 1), 0), 1));
-  };
-
-  new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting;
-    if (inView) update();
-  }, { rootMargin: '20% 0px 20% 0px' }).observe(stage);
-
-  window.addEventListener('scroll', () => {
-    if (inView && !ticking) {
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-  }, { passive: true });
-
-  update();
-}
-
-/* =========================================================
    CTA FIXO NO CELULAR
    aparece quando os botões do topo saem da tela e some na seção de contato
    ========================================================= */
@@ -509,9 +574,8 @@ initHeader();
 initActiveNav();
 initMenu();
 initReveal();
-initWorkPreview();
+initShowcase();
 initCases();
 initEmailForm();
 initSteps();
-initWorkStage();
 initMobileCta();

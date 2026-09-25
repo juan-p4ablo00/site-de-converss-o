@@ -724,77 +724,60 @@ p {
 }
 
 /* =========================================================
-   PROJETOS · abertura + índice
+   PROJETOS · índice e vitrine
    ========================================================= */
-/* a palavra surge com a rolagem e as telas dos esboços correm dentro das letras */
-.work {
-  padding-top: 0;
-}
-
-.work-stage {
-  position: relative;
-  height: 200vh;
-}
-
-.work-stage-inner {
-  position: sticky;
-  top: 0;
-  display: grid;
-  place-items: center;
-  height: 100svh;
-  padding-inline: var(--gutter);
-  overflow: hidden;
-}
-
-.work-word {
-  font-size: clamp(2.75rem, 17.5vw, 18rem);
-  font-weight: 640;
-  font-stretch: 125%;
-  letter-spacing: -.05em;
-  line-height: 1;
-  text-align: center;
-  background-image: url("assets/img/projetos/faixa-projetos.webp");
-  background-repeat: no-repeat;
-  background-size: auto 190%;
-  background-position: calc(var(--t, 0) * 100%) center;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* contorno fino: as letras continuam legíveis sobre as partes escuras das telas */
-  -webkit-text-stroke: 1px rgba(150, 170, 220, .22);
-  transform: scale(calc(.88 + var(--t, 0) * .16)) translateX(calc(var(--t, 0) * -2%));
-  clip-path: inset(0 calc(100% - var(--enter, 1) * 100%) 0 0);
-}
-
-/* sem suporte a recortar a imagem no texto, a palavra fica sólida */
-@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
-  .work-word {
-    background: none;
-    color: var(--text);
-  }
-}
-
+/* a moldura (linha, respiro) vem do .section-head; aqui só a medida do texto */
 .work-lead {
-  margin-bottom: clamp(40px, 6vw, 88px);
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
   max-width: 46ch;
 }
+
+/* ---------------------------------------------------------
+   VITRINE · palco fixo + índice
+   O palco só aparece com JS e em tela larga. Sem ele, o índice
+   sozinho continua completo: imagem, texto, descrição e link.
+   --------------------------------------------------------- */
+.showcase-stage {
+  display: none;
+}
+
 .work-index {
   border-bottom: 1px solid var(--line);
 }
 
 .work-row {
+  position: relative;
   border-top: 1px solid var(--line);
 }
 
+/* marca do projeto ativo: cresce sobre a própria linha, sem deslocar nada */
+.work-row::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--blue-text);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .8s var(--ease-out);
+}
+
+.work-row.is-active::after {
+  transform: scaleX(1);
+}
+
+/* celular: composição própria, um bloco editorial por projeto */
 .work-trigger {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
-    "thumb thumb thumb"
-    "num   name  arrow"
-    ".     meta  meta";
+    "thumb thumb"
+    "num   num"
+    "name  name"
+    "meta  meta"
+    "desc  desc"
+    "cta   arrow";
   align-items: baseline;
   column-gap: var(--col-gap);
   row-gap: 8px;
@@ -804,11 +787,13 @@ p {
 .work-thumb {
   grid-area: thumb;
   width: 100%;
+  max-width: 640px;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   border-radius: var(--radius-img);
   background: var(--panel);
+  clip-path: inset(0 0 0 0);
 }
 
 .work-num {
@@ -834,6 +819,23 @@ p {
   font-size: var(--fs-small);
 }
 
+.work-desc {
+  grid-area: desc;
+  max-width: 44ch;
+  margin-top: 4px;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+.work-cta {
+  grid-area: cta;
+  align-self: center;
+  margin-top: 10px;
+  color: var(--blue-text);
+  font-size: var(--fs-small);
+}
+
 .work-tag {
   display: none;
 }
@@ -851,10 +853,6 @@ p {
 .work-meta::after {
   content: ' · Esboço';
   color: var(--text-3);
-}
-
-.work-preview {
-  display: none;
 }
 
 /* =========================================================
@@ -1773,36 +1771,9 @@ html:not(.js) .step::before {
 }
 
 /* =========================================================
-   PONTEIRO FINO (mouse): prévia que segue o cursor
+   PONTEIRO FINO (mouse)
    ========================================================= */
 @media (hover: hover) and (pointer: fine) {
-
-  .work-preview {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 40;
-    width: clamp(280px, 24vw, 400px);
-    aspect-ratio: 16 / 10;
-    pointer-events: none;
-    opacity: 0;
-    clip-path: inset(14% 14% 14% 14% round 6px);
-    transition: opacity .35s var(--ease-out), clip-path .6s var(--ease-out);
-    will-change: transform;
-  }
-
-  .work-preview.is-visible {
-    opacity: 1;
-    clip-path: inset(0 0 0 0 round 6px);
-  }
-
-  .work-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-  }
 
   .work-index:hover .work-trigger:not(:hover) .work-name {
     color: var(--text-3);
@@ -1829,58 +1800,221 @@ html:not(.js) .step::before {
   }
 }
 
-/* índice de projetos com mouse: colunas fixas, todas as linhas alinhadas */
-@media (hover: hover) and (pointer: fine) and (min-width: 960px) {
-  .work-trigger {
-    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
-    grid-template-areas:
-      "num name arrow"
-      ".   meta arrow";
-    align-items: center;
-    padding-block: clamp(26px, 2.8vw, 44px);
+/* =========================================================
+   VITRINE EM TELA LARGA
+   palco fixo à esquerda, índice à direita.
+   As linhas têm altura constante: nada se desloca enquanto se rola,
+   senão a linha que o leitor persegue foge do cursor.
+   ========================================================= */
+@media (min-width: 960px) {
+  .showcase.is-live {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr);
+    column-gap: clamp(28px, 4vw, 80px);
+    align-items: start;
   }
 
-  .work-thumb {
+  /* acompanha a leitura sem prender a rolagem da página */
+  .showcase.is-live .showcase-stage {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-h) + clamp(20px, 5vh, 64px));
+  }
+
+  .showcase-frame {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius-img);
+    background: var(--panel);
+  }
+
+  .showcase-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .showcase-layer.is-front {
+    z-index: 1;
+  }
+
+  .showcase-foot {
+    display: flex;
+    align-items: baseline;
+    gap: clamp(16px, 2vw, 28px);
+    margin-top: 18px;
+  }
+
+  .showcase-count {
+    flex: none;
+    color: var(--text-3);
+    font-size: var(--fs-micro);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .06em;
+  }
+
+  .showcase-now {
+    color: var(--text);
+  }
+
+  .showcase-all::before {
+    content: ' / ';
+  }
+
+  .showcase-desc {
+    max-width: 42ch;
+    color: var(--text-2);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+  }
+
+  .showcase.is-live .work-trigger {
+    grid-template-columns: 2.75rem minmax(0, 1fr) 2.5rem;
+    grid-template-areas:
+      "num  name arrow"
+      ".    meta arrow"
+      ".    cta  arrow"
+      ".    desc arrow";
+    align-items: center;
+    row-gap: 6px;
+    padding-block: clamp(22px, 2.6vw, 38px);
+
+    /* a coluna é metade da tela: a escala do índice inteiro não cabe aqui */
+  }
+
+  .showcase.is-live .work-name {
+    font-size: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+  }
+
+  .showcase.is-live .work-thumb {
     display: none;
+  }
+
+  /* com o palco no ar a descrição aparece lá; aqui ela continua
+     disponível para leitor de tela e para a busca */
+  .showcase.is-live .work-desc {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .showcase.is-live .work-cta {
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .showcase.is-live .work-cta {
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .5s var(--ease-out), transform .6s var(--ease-out);
+  }
+
+  .showcase.is-live .work-row.is-active .work-cta,
+  .work-trigger:hover .work-cta,
+  .work-trigger:focus-visible .work-cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* o projeto ativo é o único em branco pleno */
+  .showcase.is-live .work-name {
+    color: var(--text-2);
+  }
+
+  .showcase.is-live .work-row.is-active .work-name,
+  .work-trigger:hover .work-name,
+  .work-trigger:focus-visible .work-name {
+    color: var(--text);
   }
 }
 
-@media (hover: hover) and (pointer: fine) and (min-width: 1400px) {
-  .work-trigger {
-    grid-template-columns: 3.5rem minmax(0, 1fr) 17rem 2.5rem;
-    grid-template-areas:
-      "num name thumb arrow"
-      "num name meta  arrow";
-    row-gap: 10px;
+/* =========================================================
+   CORTINA · troca de projeto no palco
+   A nova tela é revelada por um corte que varre o quadro; a anterior
+   recua poucos por cento. O sentido segue a navegação: avançar varre
+   de cima, voltar varre de baixo.
+   ========================================================= */
+.showcase {
+  --ease-curtain: cubic-bezier(.76, 0, .24, 1);
+}
+
+@keyframes curtain-in-next {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes curtain-in-prev {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes curtain-out-next {
+  from { transform: none; }
+  to   { transform: translateY(-1.8%) scale(1.02); }
+}
+
+@keyframes curtain-out-prev {
+  from { transform: none; }
+  to   { transform: translateY(1.8%) scale(1.02); }
+}
+
+@keyframes curtain-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.showcase-layer.is-in-next  { animation: curtain-in-next .82s var(--ease-curtain) both; }
+.showcase-layer.is-in-prev  { animation: curtain-in-prev .82s var(--ease-curtain) both; }
+.showcase-layer.is-out-next { animation: curtain-out-next .82s var(--ease-curtain) both; }
+.showcase-layer.is-out-prev { animation: curtain-out-prev .82s var(--ease-curtain) both; }
+
+/* o texto do palco acompanha a troca, sem competir com a imagem */
+.showcase-desc,
+.showcase-now {
+  transition: opacity .32s var(--ease-out), transform .32s var(--ease-out);
+}
+
+.showcase-foot.is-changing .showcase-desc,
+.showcase-foot.is-changing .showcase-now {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* celular: a capa entra por uma cortina curta, o resto já vem do reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .js .work-row .work-thumb {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path .9s var(--ease-curtain) 120ms;
   }
 
-  /* a prova aparece em repouso, sempre no mesmo lugar; o hover amplia */
-  .work-thumb {
-    display: block;
-    justify-self: end;
-    align-self: end;
-    width: 128px;
-    margin: 0;
-    opacity: .72;
-    filter: saturate(.6);
-    transition: opacity .5s var(--ease-out), filter .5s var(--ease-out);
+  .js .work-row.is-in .work-thumb {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-layer.is-in-next,
+  .showcase-layer.is-in-prev {
+    animation: curtain-fade .18s linear both;
   }
 
-  .work-trigger:hover .work-thumb,
-  .work-trigger:focus-visible .work-thumb {
-    opacity: 1;
-    filter: none;
+  .showcase-layer.is-out-next,
+  .showcase-layer.is-out-prev {
+    animation: none;
   }
 
-  .work-meta {
-    justify-self: end;
-    align-self: start;
-    text-align: right;
-    font-size: var(--fs-micro);
-  }
-
-  .work-arrow {
-    justify-self: end;
+  .work-row::after,
+  .showcase-desc,
+  .showcase-now {
+    transition: none;
   }
 }
 
@@ -2180,10 +2314,6 @@ html:not(.js) .step::before {
     font-size: var(--fs-micro);
   }
 
-  .work-stage {
-    height: 150vh;
-  }
-
   .hero {
     display: block;
     min-height: 0;
@@ -2209,10 +2339,6 @@ html:not(.js) .step::before {
     grid-row: auto;
     width: min(100%, 280px);
     margin-inline: auto;
-  }
-
-  .work-word {
-    font-size: clamp(2.5rem, 22vw, 7rem);
   }
 
   .visual-frame {

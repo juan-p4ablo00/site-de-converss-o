@@ -167,58 +167,76 @@
 
     <!-- ============ PROJETOS ============ -->
     <section class="section work" id="projetos" aria-labelledby="work-title">
-      <div class="work-stage" id="workStage">
-        <div class="work-stage-inner">
-          <h2 class="work-word" id="work-title">Projetos</h2>
-        </div>
-      </div>
-
       <div class="shell">
-        <p class="section-lead work-lead" data-reveal>Esboços de interface para três negócios que vivem de confiança:
-          uma imobiliária, uma clínica de estética e um escritório de advocacia.</p>
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="work-title">Projetos</h2>
+          <p class="section-lead work-lead">Esboços de interface para três negócios que vivem de confiança:
+            uma imobiliária, uma clínica de estética e um escritório de advocacia.</p>
+        </header>
 
-        <ol class="work-index" id="workIndex">
+        <div class="showcase" id="showcase">
+          <!-- PALCO · prova visual do projeto ativo.
+               Decorativo de propósito: o conteúdo real, indexado e navegável, vive no índice ao lado.
+               Sem JavaScript ele nunca aparece e o índice continua completo. -->
+          <div class="showcase-stage" aria-hidden="true">
+            <div class="showcase-frame">
+              <img class="showcase-layer is-front" alt="" width="1600" height="1000" decoding="async">
+              <img class="showcase-layer" alt="" width="1600" height="1000" decoding="async">
+            </div>
+            <div class="showcase-foot">
+              <p class="showcase-count">
+                <span class="showcase-now">01</span><span class="showcase-all"></span>
+              </p>
+              <p class="showcase-desc"></p>
+            </div>
+          </div>
+
+          <ol class="work-index" id="workIndex">
           <li class="work-row" data-reveal>
             <a class="work-trigger" href="https://nobrega-imoveis-de.vercel.app/" data-case="nobrega"
-              data-preview="assets/img/projetos/nobrega-capa-800.webp" aria-haspopup="dialog">
+              data-stage="assets/img/projetos/nobrega-capa.webp"
+              data-alt="Tela inicial do esboço Nóbrega Imóveis: fotografia de uma casa com piscina e título em serifa branca" aria-haspopup="dialog">
               <img class="work-thumb" src="assets/img/projetos/nobrega-capa-800.webp" width="800" height="500" alt=""
                 loading="lazy" decoding="async">
               <span class="work-num" aria-hidden="true">01</span>
               <span class="work-name">Nóbrega Imóveis</span>
               <span class="work-meta">Imobiliário · Landing page</span>
-              <span class="work-tag">Esboço</span>
+              <span class="work-desc">Seleção de imóveis filtrável, manifesto da marca e contato direto com um curador.</span>
+              <span class="work-cta" aria-hidden="true">Ver o case</span>
               <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
             </a>
           </li>
           <li class="work-row" data-reveal style="--d:1">
             <a class="work-trigger" href="https://clinica-amostra.vercel.app/" data-case="lumiere"
-              data-preview="assets/img/projetos/lumiere-capa-800.webp" aria-haspopup="dialog">
+              data-stage="assets/img/projetos/lumiere-capa.webp"
+              data-alt="Tela inicial do esboço Lumière Estética: fundo claro, título em serifa e botão de agendar avaliação" aria-haspopup="dialog">
               <img class="work-thumb" src="assets/img/projetos/lumiere-capa-800.webp" width="800" height="500" alt=""
                 loading="lazy" decoding="async">
               <span class="work-num" aria-hidden="true">02</span>
               <span class="work-name">Lumière Estética</span>
               <span class="work-meta">Estética · Landing page</span>
-              <span class="work-tag">Esboço</span>
+              <span class="work-desc">Tratamentos em linguagem simples, horários de atendimento e o botão de agendar sempre à vista.</span>
+              <span class="work-cta" aria-hidden="true">Ver o case</span>
               <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
             </a>
           </li>
           <li class="work-row" data-reveal style="--d:2">
             <a class="work-trigger" href="https://advocacia1.vercel.app/" data-case="advocacia"
-              data-preview="assets/img/projetos/advocacia-capa-800.webp" aria-haspopup="dialog">
+              data-stage="assets/img/projetos/advocacia-capa.webp"
+              data-alt="Tela inicial do esboço Andrade &amp; Bittencourt: fundo escuro, serifa clássica e triagem guiada" aria-haspopup="dialog">
               <img class="work-thumb" src="assets/img/projetos/advocacia-capa-800.webp" width="800" height="500" alt=""
                 loading="lazy" decoding="async">
               <span class="work-num" aria-hidden="true">03</span>
               <span class="work-name">Andrade &amp; Bittencourt</span>
               <span class="work-meta">Advocacia · Site institucional</span>
-              <span class="work-tag">Esboço</span>
+              <span class="work-desc">Central de dúvidas por tema e uma triagem guiada em três perguntas antes da conversa.</span>
+              <span class="work-cta" aria-hidden="true">Ver o case</span>
               <svg class="work-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow" /></svg>
             </a>
           </li>
-        </ol>
+          </ol>
+        </div>
       </div>
-
-      <div class="work-preview" id="workPreview" aria-hidden="true">
-        <img src="assets/img/projetos/nobrega-capa-800.webp" alt="" width="800" height="500">
       </div>
     </section>
 
