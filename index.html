@@ -196,8 +196,13 @@
             <a class="work-trigger" href="https://nobrega-imoveis-de.vercel.app/" data-case="nobrega"
               data-stage="assets/img/projetos/nobrega-capa.webp"
               data-alt="Tela inicial do esboço Nóbrega Imóveis: fotografia de uma casa com piscina e título em serifa branca" aria-haspopup="dialog">
-              <img class="work-thumb" src="assets/img/projetos/nobrega-capa-800.webp" width="800" height="500" alt=""
-                loading="lazy" decoding="async">
+              <picture class="work-shot">
+                <!-- no celular, a captura do projeto no próprio celular: é o que
+                     quem está no telefone vai encontrar se abrir o esboço -->
+                <source media="(max-width: 959px)" srcset="assets/img/projetos/nobrega-celular-topo.webp">
+                <img class="work-thumb" src="assets/img/projetos/nobrega-capa-800.webp" width="800" height="500" alt=""
+                  loading="lazy" decoding="async">
+              </picture>
               <span class="work-num" aria-hidden="true">01</span>
               <span class="work-name">Nóbrega Imóveis</span>
               <span class="work-meta">Imobiliário · Landing page</span>
@@ -210,8 +215,13 @@
             <a class="work-trigger" href="https://clinica-amostra.vercel.app/" data-case="lumiere"
               data-stage="assets/img/projetos/lumiere-capa.webp"
               data-alt="Tela inicial do esboço Lumière Estética: fundo claro, título em serifa e botão de agendar avaliação" aria-haspopup="dialog">
-              <img class="work-thumb" src="assets/img/projetos/lumiere-capa-800.webp" width="800" height="500" alt=""
-                loading="lazy" decoding="async">
+              <picture class="work-shot">
+                <!-- no celular, a captura do projeto no próprio celular: é o que
+                     quem está no telefone vai encontrar se abrir o esboço -->
+                <source media="(max-width: 959px)" srcset="assets/img/projetos/lumiere-celular-topo.webp">
+                <img class="work-thumb" src="assets/img/projetos/lumiere-capa-800.webp" width="800" height="500" alt=""
+                  loading="lazy" decoding="async">
+              </picture>
               <span class="work-num" aria-hidden="true">02</span>
               <span class="work-name">Lumière Estética</span>
               <span class="work-meta">Estética · Landing page</span>
@@ -224,8 +234,13 @@
             <a class="work-trigger" href="https://advocacia1.vercel.app/" data-case="advocacia"
               data-stage="assets/img/projetos/advocacia-capa.webp"
               data-alt="Tela inicial do esboço Andrade &amp; Bittencourt: fundo escuro, serifa clássica e triagem guiada" aria-haspopup="dialog">
-              <img class="work-thumb" src="assets/img/projetos/advocacia-capa-800.webp" width="800" height="500" alt=""
-                loading="lazy" decoding="async">
+              <picture class="work-shot">
+                <!-- no celular, a captura do projeto no próprio celular: é o que
+                     quem está no telefone vai encontrar se abrir o esboço -->
+                <source media="(max-width: 959px)" srcset="assets/img/projetos/advocacia-celular-topo.webp">
+                <img class="work-thumb" src="assets/img/projetos/advocacia-capa-800.webp" width="800" height="500" alt=""
+                  loading="lazy" decoding="async">
+              </picture>
               <span class="work-num" aria-hidden="true">03</span>
               <span class="work-name">Andrade &amp; Bittencourt</span>
               <span class="work-meta">Advocacia · Site institucional</span>
@@ -235,6 +250,13 @@
             </a>
           </li>
           </ol>
+
+          <p class="work-more" data-reveal>
+            <a class="link-arrow-text" data-whatsapp
+              data-msg="Olá! Vi os projetos no seu site e gostaria de ver mais."
+              href="https://wa.me/5594999731943" target="_blank" rel="noopener">Ver mais projetos
+              <span class="arr-wrap" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow" /></svg></span></a>
+          </p>
         </div>
       </div>
       </div>

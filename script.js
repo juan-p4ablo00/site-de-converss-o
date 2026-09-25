@@ -214,9 +214,14 @@ function initShowcase() {
 
   layers.forEach(l => l.addEventListener('animationend', () => limpar(l)));
 
-  const vizinhas = (i) => [i - 1, i + 1].forEach(k => {
-    if (k >= 0 && k < rows.length && srcOf(k)) new Image().src = srcOf(k);
-  });
+  // adianta so os vizinhos, e so quando o palco existe: no celular essas capas
+  // de 1600px nao aparecem em lugar nenhum e eram peso puro
+  const vizinhas = (i) => {
+    if (!palcoNoAr()) return;
+    [i - 1, i + 1].forEach(k => {
+      if (k >= 0 && k < rows.length && srcOf(k)) new Image().src = srcOf(k);
+    });
+  };
 
   const escrever = (i) => {
     if (elNow) elNow.textContent = pad(i + 1);
