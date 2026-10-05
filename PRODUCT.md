@@ -42,7 +42,7 @@ A professional specialized in building modern digital experiences for businesses
 
 ## Evidence on Hand
 
-- Projects are all concept work (esboços), no real clients: Nóbrega Imóveis (luxury real-estate landing page, nobrega-imoveis-de.vercel.app), Lumière Estética (aesthetics clinic landing page, clinica-amostra.vercel.app), Andrade & Bittencourt Adv (social-security law firm site with guided triage, advocacia1.vercel.app). Label them "Esboço" quietly, not as a feature. The data inside those sites (phones, "+1.200 processos", "18 anos") is fictional and must never be repeated as JPI claims.
+- Projects are all concept work (esboços), no real clients: Nóbrega Imóveis (luxury real-estate landing page, nobrega-imoveis-de.vercel.app), Lumière Estética (aesthetics clinic landing page, clinica-amostra.vercel.app), Andrade & Bittencourt Adv (social-security law firm site with guided triage, advocacia1.vercel.app), Helena Vasconcelos (advocacy site for a Belém-PA lawyer, advocacia-md-mu.vercel.app), Tostado Burger Co. (burger shop digital menu, tostado.vercel.app). Label them "Esboço" quietly, not as a feature. The data inside those sites (phones, "+1.200 processos", "18 anos") is fictional and must never be repeated as JPI claims.
 - **No real testimonials exist.** The old testimonials (Marina Costa, Rafael Lima, Ana Beatriz) were placeholders and are retired. Never invent testimonials, client names, metrics, years of experience, project counts, or results.
 
 ## Product Principles
