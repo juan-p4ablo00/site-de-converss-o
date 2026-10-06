@@ -2063,6 +2063,87 @@ html:not(.js) .step::before {
 }
 
 /* =========================================================
+   FEEDBACKS · cartões de depoimento
+   Sem retrato: foto de banco num depoimento é rosto de pessoa real
+   emprestado a uma fala que ela nunca disse. Iniciais resolvem.
+   ========================================================= */
+.quote-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(20px, 2.4vw, 28px);
+  border-top: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: linear-gradient(to bottom, rgba(11, 18, 36, .9), rgba(11, 18, 36, .3));
+}
+
+.quote-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quote-avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+  font-weight: 560;
+  letter-spacing: .03em;
+}
+
+.quote-who {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.quote-name {
+  color: var(--text);
+  font-size: var(--fs-body);
+  font-weight: 560;
+  line-height: 1.1;
+}
+
+.quote-handle {
+  color: var(--text-3);
+  font-size: var(--fs-small);
+}
+
+.quote-text {
+  margin: 18px 0 0;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+  line-height: 1.65;
+}
+
+.quote-text::before { content: '“'; }
+.quote-text::after  { content: '”'; }
+
+@media (min-width: 640px) {
+  .quote-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--col-gap);
+  }
+}
+
+/* =========================================================
    RESPONSIVO
    ========================================================= */
 @media (min-width: 640px) {
